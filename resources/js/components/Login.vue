@@ -50,11 +50,11 @@ export default {
                 //console.log(this.$User)
                 console.log(response.data.role_id)
                 if(response.data.role_id === 1)
-                    this.$router.push('/userWelcomePage')
+                    this.$router.push('/client/userWelcomePage')
                 if(response.data.role_id === 2)
-                    this.$router.push('/cleanerMainPage')
+                    this.$router.push('/cleaner/cleanerMainPage')
                 if(response.data.role_id === 3)
-                    this.$router.push('/registerCleaner')
+                    this.$router.push('/admin/registerCleaner')
             }).catch((error) => {
                 this.isLogFailed = true;
             })

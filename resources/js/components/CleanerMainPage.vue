@@ -1,14 +1,5 @@
 <template>
 <div class="content">
-    <header class="header">
-            <div class="header__logo">
-                Формула чистоты
-                <img class="header__logo-image" src="Images/serviceLogo.svg" alt="Логотип компании с изображением инструментов для мытья">
-            </div>
-            <div class="header__links">
-                <a href="#" @click.prevent="logout">Выйти</a>
-            </div>
-    </header>
     <div class="main">
         <div class="main__content">
             <h2 class="main__header">Заказы клиентов</h2>
@@ -60,14 +51,6 @@ export default {
             }
             if(this.orders.length == 0)
                 this.isDontHaveOrders = true;
-        },
-        logout() {
-            axios.post('/api/logout').then(response=>{
-                localStorage.removeItem('UserData')
-                this.$router.push('/')
-            }).catch((error) => {
-
-            })
         }
     },
     created() {
@@ -82,7 +65,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

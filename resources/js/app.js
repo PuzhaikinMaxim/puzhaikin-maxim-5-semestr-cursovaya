@@ -16,6 +16,9 @@ import CleanerMainPage from './components/CleanerMainPage.vue'
 import MakeReview from './components/MakeReview.vue'
 import RegisterCleaner from './components/RegisterCleaner.vue'
 import AddAdditionalService from './components/AddAdditionalService.vue'
+import ClientMenu from './components/ClientMenu.vue'
+import CleanerMenu from './components/CleanerMenu.vue'
+import AdminMenu from './components/AdminMenu.vue'
 
 //const VueRouter = require('vue-router').default;
 
@@ -58,9 +61,9 @@ const router = new VueRouter({
             meta: {title: 'Вход'}
         },
         {
-            path: '/userWelcomePage',
-            /*name: 'userWelcomePage',*/
-            component: UserWelcomePage,
+            path: '/client',
+            name: 'client',
+            component: ClientMenu,
             beforeEnter: (to, from, next) => {
                 axios.get('/api/GetUser').then(response=>{
                     User = response.data;
@@ -69,47 +72,31 @@ const router = new VueRouter({
                         next()
                     }
                 }).catch((error) => {
-    
+
                 })
             },
-            meta: {title: 'Ваши заказы'}
+            children: [
+                {
+                    path: 'userWelcomePage',
+                    component: UserWelcomePage,
+                    meta: {title: 'Ваши заказы'}
+                },
+                {
+                    path: 'makeReview',
+                    component: MakeReview,
+                    meta: {title: 'Ваши отзывы'}
+                },
+                {
+                    path: 'orderCleaning',
+                    component: OrderCleaning,
+                    meta: {title: 'Заказ уборки на дом'}
+                }
+            ]
         },
         {
-            path: '/makeReview',
-            /*name: 'userWelcomePage',*/
-            component: MakeReview,
-            beforeEnter: (to, from, next) => {
-                axios.get('/api/GetUser').then(response=>{
-                    User = response.data;
-                    localStorage.setItem('UserData', JSON.stringify(response.data))
-                    if(User.role_id === 1) {
-                        next()
-                    }
-                }).catch((error) => {
-    
-                })
-            },
-            meta: {title: 'Ваши отзывы'}
-        },
-        {
-            path: '/orderCleaning',
-            /*name: 'userWelcomePage',*/
-            component: OrderCleaning,
-            beforeEnter: (to, from, next) => {
-                axios.get('/api/GetUser').then(response=>{
-                    if(response.data.role_id === 1) {
-                        next()
-                    }
-                }).catch((error) => {
-    
-                })
-            },
-            meta: {title: 'Заказ уборки на дом'}
-        },
-        {
-            path: '/cleanerMainPage',
-            //name: 'cleanerMainPage',
-            component: CleanerMainPage,
+            path: '/cleaner',
+            name: 'cleaner',
+            component: CleanerMenu,
             beforeEnter: (to, from, next) => {
                 axios.get('/api/GetUser').then(response=>{
                     User = response.data;
@@ -118,14 +105,21 @@ const router = new VueRouter({
                         next()
                     }
                 }).catch((error) => {
-    
+
                 })
             },
-            meta: {title: 'Ваши заказы от клиентов'}
+            children: [
+                {
+                    path: 'cleanerMainPage',
+                    component: CleanerMainPage,
+                    meta: {title: 'Ваши заказы от клиентов'}
+                }
+            ]
         },
         {
-            path: '/registerCleaner',
-            component: RegisterCleaner,
+            path: '/admin',
+            name: 'admin',
+            component: AdminMenu,
             beforeEnter: (to, from, next) => {
                 axios.get('/api/GetUser').then(response=>{
                     User = response.data;
@@ -134,26 +128,21 @@ const router = new VueRouter({
                         next()
                     }
                 }).catch((error) => {
-    
+
                 })
             },
-            meta: {title: 'Регистрация уборщика'}
-        },
-        {
-            path: '/addAdditionalService',
-            component: AddAdditionalService,
-            beforeEnter: (to, from, next) => {
-                axios.get('/api/GetUser').then(response=>{
-                    User = response.data;
-                    localStorage.setItem('UserData', JSON.stringify(response.data))
-                    if(User.role_id === 3) {
-                        next()
-                    }
-                }).catch((error) => {
-    
-                })
-            },
-            meta: {title: 'Дополнительные услуги'}
+            children: [
+                {
+                    path: 'registerCleaner',
+                    component: RegisterCleaner,
+                    meta: {title: 'Регистрация уборщика'}
+                },
+                {
+                    path: 'addAdditionalService',
+                    component:AddAdditionalService,
+                    meta: {title: 'Дополнительные услуги'}
+                }
+            ]
         },
     ]
 });

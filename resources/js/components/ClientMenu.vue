@@ -1,60 +1,32 @@
 <template>
 <div>
-    <div class="main">
-        <div class="main__content">
-            <h2 class="main__header">Активные заказы</h2>
-            <div class="main__hidden-message" v-if="isHaveActiveOrders">У вас нет активных заказов</div>
-            <div class="main__cards">
-                <div v-for="order in orders" v-bind:key="order.id" class="main__order-card">
-                    <div class="main__order-info-item">ФИО уборщика: {{order.name}}</div>
-                    <div class="main__order-info-item">Дата и время уборки: {{order.order_date_time}}</div>
-                    <div class="main__order-info-item">Количество комнат: {{order.rooms_amount}}</div>
-                    <div class="main__order-info-item">Дополнительные услуги: {{order.additional_services}}</div>
-                    <div class="main__order-info-item">Адрес: {{order.address}}</div>
-                    <div class="main__order-info-item">Итого: {{order.total_price}}</div>
-                    <button class="main__order-card-button" v-on:click="cancelOrder(order)">Отменить заказ</button>
-                </div>
+    <header class="header">
+            <div class="header__logo">
+                Формула чистоты
+                <img class="header__logo-image" src="Images/serviceLogo.svg" alt="Логотип компании с изображением инструментов для мытья">
             </div>
-        </div>
-    </div>
+            <div class="header__links">
+                <router-link to="/client/userWelcomePage"><a href="#">Активные заказы</a></router-link>
+                <router-link to="/client/orderCleaning"><a href="#">Сделать заказ</a></router-link>
+                <router-link to="/client/makeReview"><a href="#">Оставить отзыв</a></router-link>
+                <a href="#" @click.prevent="logout">Выйти</a>
+            </div>
+    </header>
+    <router-view/>
 </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            errors:[],
-            orders:[],
-            isHaveActiveOrders: false
-        }
-    },
     methods:{
-        cancelOrder(order){
-            console.log(order);
-            axios.post('/api/deleteActiveOrder',order).then(response=>{
-                for(var i = 0; i < this.orders.length; i++){
-                    if(this.orders[i].id === order.id)
-                        this.orders.splice(i,1);
-                }
-                if(this.orders.length == 0)
-                    this.isHaveActiveOrders = true;
-            }).catch((error) => {
-
-            })
-        }
-    },
-    created() {
-        //console.log(JSON.parse(localStorage.getItem('UserData')))
-        axios.post('/api/getOrders', JSON.parse(localStorage.getItem('UserData'))).then(response=>{
-            this.orders = response.data;
-            console.log(this.orders);
-            if(this.orders.length == 0)
-                this.isHaveActiveOrders = true;
-            this.msg = 'dsdsdsdsdsddsbbbbbbbbbbbb'
+        logout() {
+            axios.post('/api/logout').then(response=>{
+                localStorage.removeItem('UserData')
+                this.$router.push('/')
         }).catch((error) => {
 
         })
+        }
     }
 }
 </script>
