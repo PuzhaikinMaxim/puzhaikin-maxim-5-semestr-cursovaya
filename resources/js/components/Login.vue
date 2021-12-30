@@ -1,16 +1,5 @@
 <template>
 <div class="content">
-    <header class="header">
-            <div class="header__logo">
-                Формула чистоты
-                <img class="header__logo-image" src="Images/serviceLogo.svg" alt="Логотип компании с изображением инструментов для мытья">
-            </div>
-            <div class="header__links">
-                <router-link to="/"><a href="#">Главная страница</a></router-link>
-                <router-link to="/login"><a href="#">Вход</a></router-link>
-                <router-link to="/registration"><a href="#">Регистрация</a></router-link>
-            </div>
-    </header>
     <div class="main">
         <div class="main__content">
             <h2 class="main__header">Вход</h2>
@@ -42,12 +31,6 @@ export default {
     methods:{
         loginUser(){
             axios.post('/api/login', this.form).then(response=>{
-                //console.log(response.data)
-                //console.log('fdfdfdf')
-                //this.$User = response.data
-                //localStorage.setItem('UserRole', response.data.role_id)
-                //localStorage.setItem('UserID', response.data.id)
-                //console.log(this.$User)
                 console.log(response.data.role_id)
                 if(response.data.role_id === 1)
                     this.$router.push('/client/userWelcomePage')

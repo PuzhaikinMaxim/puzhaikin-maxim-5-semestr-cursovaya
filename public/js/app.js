@@ -1875,17 +1875,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1959,6 +1948,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -2186,17 +2178,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2213,12 +2194,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/api/login', this.form).then(function (response) {
-        //console.log(response.data)
-        //console.log('fdfdfdf')
-        //this.$User = response.data
-        //localStorage.setItem('UserRole', response.data.role_id)
-        //localStorage.setItem('UserID', response.data.id)
-        //console.log(this.$User)
         console.log(response.data.role_id);
         if (response.data.role_id === 1) _this.$router.push('/client/userWelcomePage');
         if (response.data.role_id === 2) _this.$router.push('/cleaner/cleanerMainPage');
@@ -3132,17 +3107,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3261,8 +3225,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_WelcomePage_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/WelcomePage.vue */ "./resources/js/components/WelcomePage.vue");
 /* harmony import */ var _components_Registration_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Registration.vue */ "./resources/js/components/Registration.vue");
 /* harmony import */ var _components_Login_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue");
@@ -3275,6 +3239,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ClientMenu_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/ClientMenu.vue */ "./resources/js/components/ClientMenu.vue");
 /* harmony import */ var _components_CleanerMenu_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/CleanerMenu.vue */ "./resources/js/components/CleanerMenu.vue");
 /* harmony import */ var _components_AdminMenu_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/AdminMenu.vue */ "./resources/js/components/AdminMenu.vue");
+/* harmony import */ var _components_GuestMenu_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/GuestMenu.vue */ "./resources/js/components/GuestMenu.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -3295,9 +3260,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
  //const VueRouter = require('vue-router').default;
 
-vue__WEBPACK_IMPORTED_MODULE_12__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_13__.default);
+vue__WEBPACK_IMPORTED_MODULE_13__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_14__.default);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 /**
  * The following block of code may be used to automatically register your
@@ -3309,30 +3275,32 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-vue__WEBPACK_IMPORTED_MODULE_12__.default.component('main-component', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue").default);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_13__.default({
+vue__WEBPACK_IMPORTED_MODULE_13__.default.component('main-component', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue").default);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
   mode: 'history',
   routes: [{
-    path: '/',
-    name: 'welcomePage',
-    component: _components_WelcomePage_vue__WEBPACK_IMPORTED_MODULE_0__.default,
-    meta: {
-      title: 'Формула чистоты - клининговая компания'
-    }
-  }, {
-    path: '/registration',
-    name: 'registration',
-    component: _components_Registration_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    meta: {
-      title: 'Регистрация'
-    }
-  }, {
-    path: '/login',
-    name: 'login',
-    component: _components_Login_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    meta: {
-      title: 'Вход'
-    }
+    path: '',
+    name: 'guest',
+    component: _components_GuestMenu_vue__WEBPACK_IMPORTED_MODULE_12__.default,
+    children: [{
+      path: '/',
+      component: _components_WelcomePage_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+      meta: {
+        title: 'Формула чистоты - клининговая компания'
+      }
+    }, {
+      path: 'registration',
+      component: _components_Registration_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+      meta: {
+        title: 'Регистрация'
+      }
+    }, {
+      path: 'login',
+      component: _components_Login_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+      meta: {
+        title: 'Вход'
+      }
+    }]
   }, {
     path: '/client',
     name: 'client',
@@ -3427,7 +3395,7 @@ var User;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_12__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_13__.default({
   el: '#app',
   components: {
     app: app
@@ -39964,6 +39932,43 @@ component.options.__file = "resources/js/components/ClientMenu.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/GuestMenu.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/GuestMenu.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GuestMenu_vue_vue_type_template_id_32bb31fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GuestMenu.vue?vue&type=template&id=32bb31fc& */ "./resources/js/components/GuestMenu.vue?vue&type=template&id=32bb31fc&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
+  script,
+  _GuestMenu_vue_vue_type_template_id_32bb31fc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _GuestMenu_vue_vue_type_template_id_32bb31fc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GuestMenu.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Login.vue":
 /*!*******************************************!*\
   !*** ./resources/js/components/Login.vue ***!
@@ -40679,6 +40684,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GuestMenu.vue?vue&type=template&id=32bb31fc&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/GuestMenu.vue?vue&type=template&id=32bb31fc& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestMenu_vue_vue_type_template_id_32bb31fc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestMenu_vue_vue_type_template_id_32bb31fc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestMenu_vue_vue_type_template_id_32bb31fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GuestMenu.vue?vue&type=template&id=32bb31fc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GuestMenu.vue?vue&type=template&id=32bb31fc&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&":
 /*!**************************************************************************!*\
   !*** ./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e& ***!
@@ -40832,43 +40854,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("header", { staticClass: "header" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "header__links" },
-        [
-          _c("router-link", { attrs: { to: "/registerCleaner" } }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _vm._v("Зарегистрировать уборщика")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/addAdditionalService" } }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _vm._v("Изменить список доп. услуг")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              attrs: { href: "#" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.logout.apply(null, arguments)
-                }
-              }
-            },
-            [_vm._v("Выйти")]
-          )
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "main" }, [
       _c("div", { staticClass: "main__content" }, [
         _c("h2", { staticClass: "main__header" }, [
@@ -41027,23 +41012,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header__logo" }, [
-      _vm._v("\n                Формула чистоты\n                "),
-      _c("img", {
-        staticClass: "header__logo-image",
-        attrs: {
-          src: "Images/serviceLogo.svg",
-          alt: "Логотип компании с изображением инструментов для мытья"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -41066,42 +41035,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "header" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "header__links" },
-      [
-        _c("router-link", { attrs: { to: "/admin/registerCleaner" } }, [
-          _c("a", { attrs: { href: "#" } }, [
-            _vm._v("Зарегистрировать уборщика")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { to: "/admin/addAdditionalService" } }, [
-          _c("a", { attrs: { href: "#" } }, [
-            _vm._v("Изменить список доп. услуг")
-          ])
-        ]),
+  return _c(
+    "div",
+    [
+      _c("header", { staticClass: "header" }, [
+        _vm._m(0),
         _vm._v(" "),
         _c(
-          "a",
-          {
-            attrs: { href: "#" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.logout.apply(null, arguments)
-              }
-            }
-          },
-          [_vm._v("Выйти")]
+          "div",
+          { staticClass: "header__links" },
+          [
+            _c("router-link", { attrs: { to: "/admin/registerCleaner" } }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Зарегистрировать уборщика")
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              { attrs: { to: "/admin/addAdditionalService" } },
+              [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("Изменить список доп. услуг")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.logout.apply(null, arguments)
+                  }
+                }
+              },
+              [_vm._v("Выйти")]
+            )
+          ],
+          1
         )
-      ],
-      1
-    )
-  ])
+      ]),
+      _vm._v(" "),
+      _c("router-view")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -41109,7 +41090,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "header__logo" }, [
-      _vm._v("\n            Формула чистоты\n            "),
+      _vm._v("\r\n                Формула чистоты\r\n                "),
       _c("img", {
         staticClass: "header__logo-image",
         attrs: {
@@ -41364,6 +41345,76 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GuestMenu.vue?vue&type=template&id=32bb31fc&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GuestMenu.vue?vue&type=template&id=32bb31fc& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("header", { staticClass: "header" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "header__links" },
+          [
+            _c("router-link", { attrs: { to: "/" } }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("Главная страница")])
+            ]),
+            _vm._v(" "),
+            _c("router-link", { attrs: { to: "/login" } }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("Вход")])
+            ]),
+            _vm._v(" "),
+            _c("router-link", { attrs: { to: "/registration" } }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("Регистрация")])
+            ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("router-view")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "header__logo" }, [
+      _vm._v("\r\n                Формула чистоты\r\n                "),
+      _c("img", {
+        staticClass: "header__logo-image",
+        attrs: {
+          src: "Images/serviceLogo.svg",
+          alt: "Логотип компании с изображением инструментов для мытья"
+        }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e& ***!
@@ -41381,29 +41432,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("header", { staticClass: "header" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "header__links" },
-        [
-          _c("router-link", { attrs: { to: "/" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Главная страница")])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/login" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Вход")])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/registration" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Регистрация")])
-          ])
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "main" }, [
       _c("div", { staticClass: "main__content" }, [
         _c("h2", { staticClass: "main__header" }, [_vm._v("Вход")]),
@@ -41480,23 +41508,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header__logo" }, [
-      _vm._v("\r\n                Формула чистоты\r\n                "),
-      _c("img", {
-        staticClass: "header__logo-image",
-        attrs: {
-          src: "Images/serviceLogo.svg",
-          alt: "Логотип компании с изображением инструментов для мытья"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42709,29 +42721,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("header", { staticClass: "header" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "header__links" },
-        [
-          _c("router-link", { attrs: { to: "/" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Главная страница")])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/login" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Вход")])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/registration" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Регистрация")])
-          ])
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "main" }, [
       _c("div", { staticClass: "main__content" }, [
         _c("h2", { staticClass: "main__header" }, [_vm._v("Регистрация")]),
@@ -42864,23 +42853,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header__logo" }, [
-      _vm._v("\r\n                Формула чистоты\r\n                "),
-      _c("img", {
-        staticClass: "header__logo-image",
-        attrs: {
-          src: "Images/serviceLogo.svg",
-          alt: "Логотип компании с изображением инструментов для мытья"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42995,110 +42968,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content" }, [
-    _c("header", { staticClass: "header" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "header__links" },
-        [
-          _c("router-link", { attrs: { to: "/" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Главная страница")])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/login" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Вход")])
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/registration" } }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Регистрация")])
-          ])
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header__logo" }, [
-      _vm._v("\r\n                Формула чистоты\r\n                "),
-      _c("img", {
-        staticClass: "header__logo-image",
-        attrs: {
-          src: "Images/serviceLogo.svg",
-          alt: "Логотип компании с изображением инструментов для мытья"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", { staticClass: "main" }, [
-      _c("div", { staticClass: "main__content" }, [
-        _c("div", { staticClass: "main__about-company" }, [
-          _c("h2", { staticClass: "main__about-header" }, [
-            _vm._v("О компании")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "main__about-text" }, [
-            _vm._v(
-              '\r\n                    Мы, компания "Формула чистоты", занимаемся уборкой ваших квартир для того, чтобы вы отдыхали! Мы на рынке много лет, в течении которых \r\n                    мы совершенствовали свой сервис.\r\n                '
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "main__successes" }, [
-          _c("h2", { staticClass: "main__about-header" }, [
-            _vm._v("Наши успехи")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "main__indicators" }, [
-            _c("div", { staticClass: "main__indicator" }, [
-              _c("img", {
-                staticClass: "main__indicator-image",
-                attrs: {
-                  src: "Images\\multiple-users-silhouette.png",
-                  alt: "Иконка клиентов"
-                }
-              }),
-              _vm._v(
-                "\r\n                        Более 300 постоянных клиентов\r\n                    "
-              )
+    return _c("div", { staticClass: "content" }, [
+      _c("main", { staticClass: "main" }, [
+        _c("div", { staticClass: "main__content" }, [
+          _c("div", { staticClass: "main__about-company" }, [
+            _c("h2", { staticClass: "main__about-header" }, [
+              _vm._v("О компании")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "main__indicator" }, [
-              _c("img", {
-                staticClass: "main__indicator-image",
-                attrs: {
-                  src: "Images\\like.png",
-                  alt: "Иконка с изображенным пальцем вверх"
-                }
-              }),
+            _c("div", { staticClass: "main__about-text" }, [
               _vm._v(
-                "\r\n                        Более 500 положительных отзывов\r\n                    "
+                '\r\n                    Мы, компания "Формула чистоты", занимаемся уборкой ваших квартир для того, чтобы вы отдыхали! Мы на рынке много лет, в течении которых \r\n                    мы совершенствовали свой сервис.\r\n                '
               )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "main__successes" }, [
+            _c("h2", { staticClass: "main__about-header" }, [
+              _vm._v("Наши успехи")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "main__indicator" }, [
-              _c("img", {
-                staticClass: "main__indicator-image",
-                attrs: {
-                  src: "Images\\bar-chart.png",
-                  alt: "Иконка растущего графика"
-                }
-              }),
-              _vm._v(
-                "\r\n                        Высшее качество уборки\r\n                    "
-              )
+            _c("div", { staticClass: "main__indicators" }, [
+              _c("div", { staticClass: "main__indicator" }, [
+                _c("img", {
+                  staticClass: "main__indicator-image",
+                  attrs: {
+                    src: "Images\\multiple-users-silhouette.png",
+                    alt: "Иконка клиентов"
+                  }
+                }),
+                _vm._v(
+                  "\r\n                        Более 300 постоянных клиентов\r\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "main__indicator" }, [
+                _c("img", {
+                  staticClass: "main__indicator-image",
+                  attrs: {
+                    src: "Images\\like.png",
+                    alt: "Иконка с изображенным пальцем вверх"
+                  }
+                }),
+                _vm._v(
+                  "\r\n                        Более 500 положительных отзывов\r\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "main__indicator" }, [
+                _c("img", {
+                  staticClass: "main__indicator-image",
+                  attrs: {
+                    src: "Images\\bar-chart.png",
+                    alt: "Иконка растущего графика"
+                  }
+                }),
+                _vm._v(
+                  "\r\n                        Высшее качество уборки\r\n                    "
+                )
+              ])
             ])
           ])
         ])

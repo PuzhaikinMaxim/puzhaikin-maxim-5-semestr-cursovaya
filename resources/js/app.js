@@ -19,6 +19,7 @@ import AddAdditionalService from './components/AddAdditionalService.vue'
 import ClientMenu from './components/ClientMenu.vue'
 import CleanerMenu from './components/CleanerMenu.vue'
 import AdminMenu from './components/AdminMenu.vue'
+import GuestMenu from './components/GuestMenu.vue'
 
 //const VueRouter = require('vue-router').default;
 
@@ -43,22 +44,26 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
-            name: 'welcomePage',
-            component: WelcomePage,
-            meta: {title: 'Формула чистоты - клининговая компания'}
-        },
-        {
-            path: '/registration',
-            name: 'registration',
-            component: Registration,
-            meta: {title: 'Регистрация'}
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: Login,
-            meta: {title: 'Вход'}
+            path: '',
+            name: 'guest',
+            component: GuestMenu,
+            children: [
+                {
+                    path: '/',
+                    component: WelcomePage,
+                    meta: {title: 'Формула чистоты - клининговая компания'}
+                },
+                {
+                    path: 'registration',
+                    component: Registration,
+                    meta: {title: 'Регистрация'}
+                },
+                {
+                    path: 'login',
+                    component: Login,
+                    meta: {title: 'Вход'}
+                }
+            ]
         },
         {
             path: '/client',

@@ -1,4 +1,5 @@
 <template>
+<div>
     <header class="header">
             <div class="header__logo">
                 Формула чистоты
@@ -10,6 +11,8 @@
                 <a href="#" @click.prevent="logout">Выйти</a>
             </div>
     </header>
+    <router-view/>
+</div>
 </template>
 
 <script>
