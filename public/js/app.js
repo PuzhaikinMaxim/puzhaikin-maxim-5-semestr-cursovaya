@@ -1965,6 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     logout: function logout() {
@@ -2101,6 +2102,31 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanersReviews.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanersReviews.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -3225,8 +3251,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_WelcomePage_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/WelcomePage.vue */ "./resources/js/components/WelcomePage.vue");
 /* harmony import */ var _components_Registration_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Registration.vue */ "./resources/js/components/Registration.vue");
 /* harmony import */ var _components_Login_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue");
@@ -3236,10 +3262,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MakeReview_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/MakeReview.vue */ "./resources/js/components/MakeReview.vue");
 /* harmony import */ var _components_RegisterCleaner_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/RegisterCleaner.vue */ "./resources/js/components/RegisterCleaner.vue");
 /* harmony import */ var _components_AddAdditionalService_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/AddAdditionalService.vue */ "./resources/js/components/AddAdditionalService.vue");
-/* harmony import */ var _components_ClientMenu_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/ClientMenu.vue */ "./resources/js/components/ClientMenu.vue");
-/* harmony import */ var _components_CleanerMenu_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/CleanerMenu.vue */ "./resources/js/components/CleanerMenu.vue");
-/* harmony import */ var _components_AdminMenu_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/AdminMenu.vue */ "./resources/js/components/AdminMenu.vue");
-/* harmony import */ var _components_GuestMenu_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/GuestMenu.vue */ "./resources/js/components/GuestMenu.vue");
+/* harmony import */ var _components_CleanersReviews_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/CleanersReviews.vue */ "./resources/js/components/CleanersReviews.vue");
+/* harmony import */ var _components_ClientMenu_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/ClientMenu.vue */ "./resources/js/components/ClientMenu.vue");
+/* harmony import */ var _components_CleanerMenu_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/CleanerMenu.vue */ "./resources/js/components/CleanerMenu.vue");
+/* harmony import */ var _components_AdminMenu_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/AdminMenu.vue */ "./resources/js/components/AdminMenu.vue");
+/* harmony import */ var _components_GuestMenu_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/GuestMenu.vue */ "./resources/js/components/GuestMenu.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -3261,9 +3288,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
  //const VueRouter = require('vue-router').default;
 
-vue__WEBPACK_IMPORTED_MODULE_13__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_14__.default);
+vue__WEBPACK_IMPORTED_MODULE_14__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_15__.default);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 /**
  * The following block of code may be used to automatically register your
@@ -3275,13 +3303,13 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-vue__WEBPACK_IMPORTED_MODULE_13__.default.component('main-component', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue").default);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
+vue__WEBPACK_IMPORTED_MODULE_14__.default.component('main-component', __webpack_require__(/*! ./components/MainComponent.vue */ "./resources/js/components/MainComponent.vue").default);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
   mode: 'history',
   routes: [{
     path: '',
     name: 'guest',
-    component: _components_GuestMenu_vue__WEBPACK_IMPORTED_MODULE_12__.default,
+    component: _components_GuestMenu_vue__WEBPACK_IMPORTED_MODULE_13__.default,
     children: [{
       path: '/',
       component: _components_WelcomePage_vue__WEBPACK_IMPORTED_MODULE_0__.default,
@@ -3304,7 +3332,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
   }, {
     path: '/client',
     name: 'client',
-    component: _components_ClientMenu_vue__WEBPACK_IMPORTED_MODULE_9__.default,
+    component: _components_ClientMenu_vue__WEBPACK_IMPORTED_MODULE_10__.default,
     beforeEnter: function beforeEnter(to, from, next) {
       axios.get('/api/GetUser').then(function (response) {
         User = response.data;
@@ -3337,7 +3365,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
   }, {
     path: '/cleaner',
     name: 'cleaner',
-    component: _components_CleanerMenu_vue__WEBPACK_IMPORTED_MODULE_10__.default,
+    component: _components_CleanerMenu_vue__WEBPACK_IMPORTED_MODULE_11__.default,
     beforeEnter: function beforeEnter(to, from, next) {
       axios.get('/api/GetUser').then(function (response) {
         User = response.data;
@@ -3358,7 +3386,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
   }, {
     path: '/admin',
     name: 'admin',
-    component: _components_AdminMenu_vue__WEBPACK_IMPORTED_MODULE_11__.default,
+    component: _components_AdminMenu_vue__WEBPACK_IMPORTED_MODULE_12__.default,
     beforeEnter: function beforeEnter(to, from, next) {
       axios.get('/api/GetUser').then(function (response) {
         User = response.data;
@@ -3381,6 +3409,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
       meta: {
         title: 'Дополнительные услуги'
       }
+    }, {
+      path: 'cleanersReviews',
+      component: _components_CleanersReviews_vue__WEBPACK_IMPORTED_MODULE_9__.default,
+      meta: {
+        title: 'Отзывы'
+      }
     }]
   }]
 });
@@ -3395,7 +3429,7 @@ var User;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_13__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_14__.default({
   el: '#app',
   components: {
     app: app
@@ -39891,6 +39925,45 @@ component.options.__file = "resources/js/components/CleanerMenu.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/CleanersReviews.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/CleanersReviews.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CleanersReviews_vue_vue_type_template_id_eac13f7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CleanersReviews.vue?vue&type=template&id=eac13f7a& */ "./resources/js/components/CleanersReviews.vue?vue&type=template&id=eac13f7a&");
+/* harmony import */ var _CleanersReviews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CleanersReviews.vue?vue&type=script&lang=js& */ "./resources/js/components/CleanersReviews.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _CleanersReviews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _CleanersReviews_vue_vue_type_template_id_eac13f7a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CleanersReviews_vue_vue_type_template_id_eac13f7a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CleanersReviews.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ClientMenu.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/ClientMenu.vue ***!
@@ -40357,6 +40430,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/CleanersReviews.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/CleanersReviews.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanersReviews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CleanersReviews.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanersReviews.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanersReviews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ClientMenu.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/ClientMenu.vue?vue&type=script&lang=js& ***!
@@ -40663,6 +40752,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanerMenu_vue_vue_type_template_id_399ceb9a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanerMenu_vue_vue_type_template_id_399ceb9a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CleanerMenu.vue?vue&type=template&id=399ceb9a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanerMenu.vue?vue&type=template&id=399ceb9a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CleanersReviews.vue?vue&type=template&id=eac13f7a&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/CleanersReviews.vue?vue&type=template&id=eac13f7a& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanersReviews_vue_vue_type_template_id_eac13f7a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanersReviews_vue_vue_type_template_id_eac13f7a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CleanersReviews_vue_vue_type_template_id_eac13f7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CleanersReviews.vue?vue&type=template&id=eac13f7a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanersReviews.vue?vue&type=template&id=eac13f7a&");
 
 
 /***/ }),
@@ -41061,6 +41167,10 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
+            _c("router-link", { attrs: { to: "/admin/cleanersReviews" } }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("Отзывы")])
+            ]),
+            _vm._v(" "),
             _c(
               "a",
               {
@@ -41252,6 +41362,46 @@ var staticRenderFns = [
           alt: "Логотип компании с изображением инструментов для мытья"
         }
       })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanersReviews.vue?vue&type=template&id=eac13f7a&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanersReviews.vue?vue&type=template&id=eac13f7a& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "main" }, [
+        _c("div", { staticClass: "main__content" }, [
+          _c("h2", { staticClass: "main__header" }, [
+            _vm._v("Оценки уборщиков")
+          ])
+        ])
+      ])
     ])
   }
 ]

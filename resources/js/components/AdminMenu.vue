@@ -8,6 +8,7 @@
             <div class="header__links">
                 <router-link to="/admin/registerCleaner"><a href="#">Зарегистрировать уборщика</a></router-link>
                 <router-link to="/admin/addAdditionalService"><a href="#">Изменить список доп. услуг</a></router-link>
+                <router-link to="/admin/cleanersReviews"><a href="#">Отзывы</a></router-link>
                 <a href="#" @click.prevent="logout">Выйти</a>
             </div>
     </header>

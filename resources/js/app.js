@@ -16,6 +16,7 @@ import CleanerMainPage from './components/CleanerMainPage.vue'
 import MakeReview from './components/MakeReview.vue'
 import RegisterCleaner from './components/RegisterCleaner.vue'
 import AddAdditionalService from './components/AddAdditionalService.vue'
+import CleanersReviews from './components/CleanersReviews.vue'
 import ClientMenu from './components/ClientMenu.vue'
 import CleanerMenu from './components/CleanerMenu.vue'
 import AdminMenu from './components/AdminMenu.vue'
@@ -146,6 +147,11 @@ const router = new VueRouter({
                     path: 'addAdditionalService',
                     component:AddAdditionalService,
                     meta: {title: 'Дополнительные услуги'}
+                },
+                {
+                    path: 'cleanersReviews',
+                    component: CleanersReviews,
+                    meta: {title: 'Отзывы'}
                 }
             ]
         },
