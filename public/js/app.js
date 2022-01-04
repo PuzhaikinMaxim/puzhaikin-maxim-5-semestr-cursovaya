@@ -2147,7 +2147,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      fiveMarks: 0,
+      fourMarks: 0,
+      threeMarks: 0,
+      twoMarks: 0,
+      oneMarks: 0,
+      allMarks: 0
+    };
+  },
+  computed: {
+    fiveMarksRatio: function fiveMarksRatio() {
+      return this.fiveMarks / this.allMarks * 100;
+    },
+    fourMarksRatio: function fourMarksRatio() {
+      return this.fourMarks / this.allMarks * 100;
+    },
+    threeMarksRatio: function threeMarksRatio() {
+      return this.threeMarks / this.allMarks * 100;
+    },
+    twoMarksRatio: function twoMarksRatio() {
+      return this.twoMarks / this.allMarks * 100;
+    },
+    oneMarksRatio: function oneMarksRatio() {
+      return this.oneMarks / this.allMarks * 100;
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/getCleanersReviews').then(function (response) {
+      _this.allMarks = response.data[0].all_marks;
+      _this.fiveMarks = response.data[0].five_mark;
+      _this.fourMarks = response.data[0].four_mark;
+      _this.threeMarks = response.data[0].three_mark;
+      _this.twoMarks = response.data[0].two_mark;
+      _this.oneMarks = response.data[0].one_mark;
+    })["catch"](function (error) {});
+  }
+});
 
 /***/ }),
 
@@ -7990,7 +8035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 500px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n    height: 50%;\n}\n.dashboard__diagramm-item_mark-four {\n}\n.dashboard__diagramm-item_mark-three {\n}\n.dashboard__diagramm-item_mark-two {\n}\n.dashboard__diagramm-item_mark-one {\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 500px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgb(182, 248, 59);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: yellow;\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: red;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41477,55 +41522,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "main" }, [
-        _c("div", { staticClass: "main__content" }, [
-          _c("h2", { staticClass: "main__header" }, [
-            _vm._v("Оценки уборщиков")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "dashboard" }, [
-            _c("div", { staticClass: "dashboard__content" }, [
-              _c("div", { staticClass: "dashboard__diagramm" }, [
-                _c("div", {
-                  staticClass:
-                    "dashboard__diagramm-item dashboard__diagramm-item_mark-five"
-                }),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass:
-                    "dashboard__diagramm-item dashboard__diagramm-item_mark-four"
-                }),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass:
-                    "dashboard__diagramm-item dashboard__diagramm-item_mark-three"
-                }),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass:
-                    "dashboard__diagramm-item dashboard__diagramm-item_mark-two"
-                }),
-                _vm._v(" "),
-                _c("div", {
-                  staticClass:
-                    "dashboard__diagramm-item dashboard__diagramm-item_mark-one"
-                })
-              ])
+  return _c("div", [
+    _c("div", { staticClass: "main" }, [
+      _c("div", { staticClass: "main__content" }, [
+        _c("h2", { staticClass: "main__header" }, [_vm._v("Оценки уборщиков")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dashboard" }, [
+          _c("div", { staticClass: "dashboard__content" }, [
+            _c("div", { staticClass: "dashboard__diagramm" }, [
+              _c("div", {
+                staticClass:
+                  "dashboard__diagramm-item dashboard__diagramm-item_mark-five",
+                style: { height: this.fiveMarksRatio + "%" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "dashboard__diagramm-item dashboard__diagramm-item_mark-four",
+                style: { height: this.fourMarksRatio + "%" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "dashboard__diagramm-item dashboard__diagramm-item_mark-three",
+                style: { height: this.threeMarksRatio + "%" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "dashboard__diagramm-item dashboard__diagramm-item_mark-two",
+                style: { height: this.twoMarksRatio + "%" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "dashboard__diagramm-item dashboard__diagramm-item_mark-one",
+                style: { height: this.oneMarksRatio + "%" }
+              })
             ])
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

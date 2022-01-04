@@ -205,6 +205,35 @@ class MainController extends Controller
         }
     }
 
+    public function getCleanersReviews(Request $request){
+        if(Auth::check()){
+            if(Auth::user()->role_id === 3){
+                if($request->id == null){
+                    return DB::select('select count(rating) FILTER (WHERE rating = 5) as five_mark,
+                    count(rating) FILTER (WHERE rating = 4) as four_mark,
+                    count(rating) FILTER (WHERE rating = 3) as three_mark,
+                    count(rating) FILTER (WHERE rating = 2) as two_mark,
+                    count(rating) FILTER (WHERE rating = 1) as one_mark,
+                    count(rating) as all_marks
+                    from reviews
+                    '
+                    );
+                }
+                else{
+                    return DB::select('select count(rating) FILTER (WHERE rating = 5) as five_mark,
+                    count(rating) FILTER (WHERE rating = 4) as four_mark,
+                    count(rating) FILTER (WHERE rating = 3) as three_mark,
+                    count(rating) FILTER (WHERE rating = 2) as two_mark,
+                    count(rating) FILTER (WHERE rating = 1) as one_mark,
+                    count(rating) as all_marks
+                    from reviews
+                    where cleaner_id = ?
+                    ',[$request->id]);
+                }
+            }
+        }
+    }
+
     public function getAllCleaners(Request $request){
         if(Auth::check()){
             if(Auth::user()->role_id === 3) {

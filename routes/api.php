@@ -65,3 +65,5 @@ Route::post('/deleteService', [App\Http\Controllers\MainController::class, 'dele
 Route::post('/addService', [App\Http\Controllers\MainController::class, 'addService'])->name('addService');
 
 Route::post('/searchReviews', [App\Http\Controllers\MainController::class, 'searchReviews'])->name('searchReviews');
+
+Route::get('/getCleanersReviews', [App\Http\Controllers\MainController::class, 'getCleanersReviews'])->name('getCleanersReviews');
