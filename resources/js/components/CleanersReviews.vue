@@ -29,6 +29,11 @@
                         </div>
                     </div>
                 </div>
+                <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="modal__select">
+                    <option v-for="cleaner in cleaners" v-bind:value="cleaner.id" v-bind:key="cleaner.id" v-bind:selected="cleaner.id === -1">
+                        {{cleaner.name}}
+                    </option>
+                </select>
             </div>
         </div>
     </div>
@@ -38,6 +43,8 @@
 export default {
     data(){
         return{
+            cleaners: [],
+            curCleanerId: -1,
             fiveMarks: 0,
             fourMarks: 0,
             threeMarks: 0,
@@ -63,6 +70,34 @@ export default {
             return (this.oneMarks/this.allMarks)*100
         }
     },
+    methods: {
+        updateMarks(id){
+            if(id != -1){
+                axios.get('/api/getCleanersReviews', {params: {id}}).then(response=>{
+                    this.allMarks = response.data[0].all_marks
+                    this.fiveMarks = response.data[0].five_mark
+                    this.fourMarks = response.data[0].four_mark
+                    this.threeMarks = response.data[0].three_mark
+                    this.twoMarks = response.data[0].two_mark
+                    this.oneMarks = response.data[0].one_mark
+                }).catch((error) => {
+
+                })
+            }
+            else {
+                axios.get('/api/getCleanersReviews').then(response=>{
+                    this.allMarks = response.data[0].all_marks
+                    this.fiveMarks = response.data[0].five_mark
+                    this.fourMarks = response.data[0].four_mark
+                    this.threeMarks = response.data[0].three_mark
+                    this.twoMarks = response.data[0].two_mark
+                    this.oneMarks = response.data[0].one_mark
+                }).catch((error) => {
+
+                })
+            }
+        }
+    },
     created() {
         axios.get('/api/getCleanersReviews').then(response=>{
             this.allMarks = response.data[0].all_marks
@@ -71,6 +106,16 @@ export default {
             this.threeMarks = response.data[0].three_mark
             this.twoMarks = response.data[0].two_mark
             this.oneMarks = response.data[0].one_mark
+        }).catch((error) => {
+
+        })
+        axios.get('/api/getAllCleaners').then(response=>{
+            //this.cleaners = response.data;
+            this.cleaners.push({id: -1, name: 'Все уборщики'})
+            for(var i = 0; i < response.data.length; i++){
+                this.cleaners.push({id: response.data[i].id, name: response.data[i].name})
+            }
+            console.log(this.cleaners)
         }).catch((error) => {
 
         })

@@ -2152,9 +2152,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      cleaners: [],
+      curCleanerId: -1,
       fiveMarks: 0,
       fourMarks: 0,
       threeMarks: 0,
@@ -2180,16 +2187,61 @@ __webpack_require__.r(__webpack_exports__);
       return this.oneMarks / this.allMarks * 100;
     }
   },
+  methods: {
+    updateMarks: function updateMarks(id) {
+      var _this = this;
+
+      if (id != -1) {
+        axios.get('/api/getCleanersReviews', {
+          params: {
+            id: id
+          }
+        }).then(function (response) {
+          _this.allMarks = response.data[0].all_marks;
+          _this.fiveMarks = response.data[0].five_mark;
+          _this.fourMarks = response.data[0].four_mark;
+          _this.threeMarks = response.data[0].three_mark;
+          _this.twoMarks = response.data[0].two_mark;
+          _this.oneMarks = response.data[0].one_mark;
+        })["catch"](function (error) {});
+      } else {
+        axios.get('/api/getCleanersReviews').then(function (response) {
+          _this.allMarks = response.data[0].all_marks;
+          _this.fiveMarks = response.data[0].five_mark;
+          _this.fourMarks = response.data[0].four_mark;
+          _this.threeMarks = response.data[0].three_mark;
+          _this.twoMarks = response.data[0].two_mark;
+          _this.oneMarks = response.data[0].one_mark;
+        })["catch"](function (error) {});
+      }
+    }
+  },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get('/api/getCleanersReviews').then(function (response) {
-      _this.allMarks = response.data[0].all_marks;
-      _this.fiveMarks = response.data[0].five_mark;
-      _this.fourMarks = response.data[0].four_mark;
-      _this.threeMarks = response.data[0].three_mark;
-      _this.twoMarks = response.data[0].two_mark;
-      _this.oneMarks = response.data[0].one_mark;
+      _this2.allMarks = response.data[0].all_marks;
+      _this2.fiveMarks = response.data[0].five_mark;
+      _this2.fourMarks = response.data[0].four_mark;
+      _this2.threeMarks = response.data[0].three_mark;
+      _this2.twoMarks = response.data[0].two_mark;
+      _this2.oneMarks = response.data[0].one_mark;
+    })["catch"](function (error) {});
+    axios.get('/api/getAllCleaners').then(function (response) {
+      //this.cleaners = response.data;
+      _this2.cleaners.push({
+        id: -1,
+        name: 'Все уборщики'
+      });
+
+      for (var i = 0; i < response.data.length; i++) {
+        _this2.cleaners.push({
+          id: response.data[i].id,
+          name: response.data[i].name
+        });
+      }
+
+      console.log(_this2.cleaners);
     })["catch"](function (error) {});
   }
 });
@@ -41561,7 +41613,59 @@ var render = function() {
               })
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.curCleanerId,
+                expression: "curCleanerId"
+              }
+            ],
+            staticClass: "modal__select",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.curCleanerId = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                function($event) {
+                  return _vm.updateMarks(_vm.curCleanerId)
+                }
+              ]
+            }
+          },
+          _vm._l(_vm.cleaners, function(cleaner) {
+            return _c(
+              "option",
+              {
+                key: cleaner.id,
+                domProps: { value: cleaner.id, selected: cleaner.id === -1 }
+              },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(cleaner.name) +
+                    "\n                "
+                )
+              ]
+            )
+          }),
+          0
+        )
       ])
     ])
   ])
