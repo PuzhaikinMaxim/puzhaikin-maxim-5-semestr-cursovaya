@@ -2157,6 +2157,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2185,6 +2202,41 @@ __webpack_require__.r(__webpack_exports__);
     },
     oneMarksRatio: function oneMarksRatio() {
       return this.oneMarks / this.allMarks * 100;
+    },
+    fiveMarksRepresentation: function fiveMarksRepresentation() {
+      if (this.fiveMarks < 1000) {
+        return this.fiveMarks;
+      } else {
+        return Math.round(this.fiveMarks / 100) / 10 + 'K';
+      }
+    },
+    fourMarksRepresentation: function fourMarksRepresentation() {
+      if (this.fourMarks < 1000) {
+        return this.fourMarks;
+      } else {
+        return Math.round(this.fourMarks / 100) / 10 + 'K';
+      }
+    },
+    threeMarksRepresentation: function threeMarksRepresentation() {
+      if (this.threeMarks < 1000) {
+        return this.threeMarks;
+      } else {
+        return Math.round(this.threeMarks / 100) / 10 + 'K';
+      }
+    },
+    twoMarksRepresentation: function twoMarksRepresentation() {
+      if (this.twoMarks < 1000) {
+        return this.twoMarks;
+      } else {
+        return Math.round(this.twoMarks / 100) / 10 + 'K';
+      }
+    },
+    oneMarksRepresentation: function oneMarksRepresentation() {
+      if (this.oneMarks < 1000) {
+        return this.oneMarks;
+      } else {
+        return Math.round(this.oneMarks / 100) / 10 + 'K';
+      }
     }
   },
   methods: {
@@ -8087,7 +8139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 500px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgb(182, 248, 59);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: yellow;\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: red;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 500px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgb(182, 248, 59);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: yellow;\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: red;\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41582,36 +41634,163 @@ var render = function() {
         _c("div", { staticClass: "dashboard" }, [
           _c("div", { staticClass: "dashboard__content" }, [
             _c("div", { staticClass: "dashboard__diagramm" }, [
-              _c("div", {
-                staticClass:
-                  "dashboard__diagramm-item dashboard__diagramm-item_mark-five",
-                style: { height: this.fiveMarksRatio + "%" }
-              }),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "dashboard__diagramm-item dashboard__diagramm-item_mark-five",
+                  style: [
+                    this.fiveMarks > 0
+                      ? {
+                          height: this.fiveMarksRatio + "%",
+                          "min-height": "24px"
+                        }
+                      : { height: "0" }
+                  ]
+                },
+                [
+                  this.fiveMarks > 0
+                    ? _c(
+                        "div",
+                        { staticClass: "dashboard__diagram-item-value" },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(this.fiveMarksRepresentation) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              ),
               _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "dashboard__diagramm-item dashboard__diagramm-item_mark-four",
-                style: { height: this.fourMarksRatio + "%" }
-              }),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "dashboard__diagramm-item dashboard__diagramm-item_mark-four",
+                  style: [
+                    this.fourMarks > 0
+                      ? {
+                          height: this.fourMarksRatio + "%",
+                          "min-height": "24px"
+                        }
+                      : { height: "0" }
+                  ]
+                },
+                [
+                  this.fourMarks > 0
+                    ? _c(
+                        "div",
+                        { staticClass: "dashboard__diagram-item-value" },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(this.fourMarksRepresentation) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              ),
               _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "dashboard__diagramm-item dashboard__diagramm-item_mark-three",
-                style: { height: this.threeMarksRatio + "%" }
-              }),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "dashboard__diagramm-item dashboard__diagramm-item_mark-three",
+                  style: [
+                    this.threeMarks > 0
+                      ? {
+                          height: this.threeMarksRatio + "%",
+                          "min-height": "24px"
+                        }
+                      : { height: "0" }
+                  ]
+                },
+                [
+                  this.threeMarks > 0
+                    ? _c(
+                        "div",
+                        { staticClass: "dashboard__diagram-item-value" },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(this.threeMarksRepresentation) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              ),
               _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "dashboard__diagramm-item dashboard__diagramm-item_mark-two",
-                style: { height: this.twoMarksRatio + "%" }
-              }),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "dashboard__diagramm-item dashboard__diagramm-item_mark-two",
+                  style: [
+                    this.twoMarks > 0
+                      ? {
+                          height: this.twoMarksRatio + "%",
+                          "min-height": "24px"
+                        }
+                      : { height: "0" }
+                  ]
+                },
+                [
+                  this.twoMarks > 0
+                    ? _c(
+                        "div",
+                        { staticClass: "dashboard__diagram-item-value" },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(this.twoMarksRepresentation) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              ),
               _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "dashboard__diagramm-item dashboard__diagramm-item_mark-one",
-                style: { height: this.oneMarksRatio + "%" }
-              })
-            ])
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "dashboard__diagramm-item dashboard__diagramm-item_mark-one",
+                  style: [
+                    this.oneMarks > 0
+                      ? {
+                          height: this.oneMarksRatio + "%",
+                          "min-height": "24px"
+                        }
+                      : { height: "0" }
+                  ]
+                },
+                [
+                  this.oneMarks > 0
+                    ? _c(
+                        "div",
+                        { staticClass: "dashboard__diagram-item-value" },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(this.oneMarksRepresentation) +
+                              "\n                            "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
           ])
         ]),
         _vm._v(" "),
@@ -41670,7 +41849,24 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dashboard__categories" }, [
+      _c("div", { staticClass: "dashboard__category" }, [_vm._v("5")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dashboard__category" }, [_vm._v("4")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dashboard__category" }, [_vm._v("3")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dashboard__category" }, [_vm._v("2")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dashboard__category" }, [_vm._v("1")])
+    ])
+  }
+]
 render._withStripped = true
 
 
