@@ -44,9 +44,23 @@
                             <div class="dashboard__category">2</div>
                             <div class="dashboard__category">1</div>
                         </div>
+                        <div class="dashboard__statistics">
+                            <div class="dashboard__stat">
+                                Всего отзывов: {{this.allMarks}}
+                            </div>
+                            <div class="dashboard__stat">
+                                Средняя оценка: {{this.averageMark}}
+                            </div>
+                            <div class="dashboard__stat">
+                                Количество положительных отзывов: {{this.fiveMarks+this.fourMarks+this.threeMarks}}
+                            </div>
+                            <div class="dashboard__stat">
+                                Количество отрицательных отзывов: {{this.twoMarks+this.oneMarks}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="modal__select">
+                <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="select">
                     <option v-for="cleaner in cleaners" v-bind:value="cleaner.id" v-bind:key="cleaner.id" v-bind:selected="cleaner.id === -1">
                         {{cleaner.name}}
                     </option>
@@ -125,6 +139,9 @@ export default {
             else{
                 return Math.round(this.oneMarks/100)/10 + 'K'
             }
+        },
+        averageMark: function() {
+            return Math.round((this.fiveMarks*5+this.fourMarks*4+this.threeMarks*3+this.twoMarks*2+this.oneMarks)/this.allMarks*100)/100
         }
     },
     methods: {
@@ -186,7 +203,7 @@ export default {
         margin-left: auto;
         margin-right: auto;
         max-width: 980px;
-        height: 500px;
+        height: 650px;
         border-radius: 20px;
         border: 3px solid slateblue;
     }
@@ -201,6 +218,23 @@ export default {
         border-radius: 20px;
         display: flex;
         align-items: flex-end;
+    }
+
+    .dashboard__statistics {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 780px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dashboard__stat {
+        font-size: 18px;
+        flex-grow: 1;
     }
 
     .dashboard__diagramm-item {

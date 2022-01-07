@@ -2174,6 +2174,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2237,6 +2251,9 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return Math.round(this.oneMarks / 100) / 10 + 'K';
       }
+    },
+    averageMark: function averageMark() {
+      return Math.round((this.fiveMarks * 5 + this.fourMarks * 4 + this.threeMarks * 3 + this.twoMarks * 2 + this.oneMarks) / this.allMarks * 100) / 100;
     }
   },
   methods: {
@@ -8115,7 +8132,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main__service-card {\n    display: flex;\n    flex-direction: column;\n    min-height: 195px;\n    justify-content: space-between;\n    max-width: 400px;\n    background-color: lightseagreen;\n    padding: 10px;\n    align-items: center;\n    border-radius: 25px;\n    color: whitesmoke;\n    min-height: 225px;\n}\n.main__service-name {\n    font-size: 24px;\n    font-weight: 700;\n}\n.main__service-price-label {\n    display: flex;\n    max-width: 300px;\n    justify-content: space-between;\n    margin-top: 20px;\n    align-items: center;\n    font-size: 20px;\n}\n.main__service-add-button {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 20px;\n    background-color: slateblue;\n    color: whitesmoke;\n}\n.main__service-name-input {\n    border: none;\n    height: 40px;\n    font-size: 18px;\n    font-family: 'Montserrat';\n    border: 2px solid slateblue;\n    border-radius: 20px;\n    transition: .25s;\n}\n.main__service-name-input:focus {\n    outline: none;\n    border: 4px solid blue;\n}\n.main__add-service-form {\n    margin-top: 25px;\n    display: flex;\n    flex-direction: column;\n    padding: 15px;\n    border: 2px solid slateblue;\n    max-width: 400px;\n    border-radius: 30px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.main__service-cost-label {\n    display: flex;\n    align-items: center;\n    font-size: 20px;\n    width: 310px;\n    justify-content: space-between;\n}\n.main__service-card-button {\n    color: whitesmoke;\n    background-color: slateblue;\n    border: none;\n    border-radius: 15px;\n    width: 300px;\n    height: 40px;\n    font-size: 18px;\n    font-family: 'Montserrat';\n}\n@media (max-width: 792px) {\n.main__cards {\n        display: flex;\n        justify-content: space-between;\n        flex-direction: column;\n        align-items: center;\n}\n.main__service-card {\n        width: 100%;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main__service-card {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-width: 400px;\n    background-color: lightseagreen;\n    padding: 10px;\n    align-items: center;\n    border-radius: 25px;\n    color: whitesmoke;\n    min-height: 225px;\n}\n.main__service-name {\n    font-size: 24px;\n    font-weight: 700;\n}\n.main__service-price-label {\n    display: flex;\n    max-width: 300px;\n    justify-content: space-between;\n    margin-top: 20px;\n    align-items: center;\n    font-size: 20px;\n}\n.main__service-add-button {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 20px;\n    background-color: slateblue;\n    color: whitesmoke;\n}\n.main__service-name-input {\n    border: none;\n    height: 40px;\n    font-size: 18px;\n    font-family: 'Montserrat';\n    border: 2px solid slateblue;\n    border-radius: 20px;\n    transition: .25s;\n}\n.main__service-name-input:focus {\n    outline: none;\n    border: 4px solid blue;\n}\n.main__add-service-form {\n    margin-top: 25px;\n    display: flex;\n    flex-direction: column;\n    padding: 15px;\n    border: 2px solid slateblue;\n    max-width: 400px;\n    border-radius: 30px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.main__service-cost-label {\n    display: flex;\n    align-items: center;\n    font-size: 20px;\n    width: 310px;\n    justify-content: space-between;\n}\n.main__service-card-button {\n    color: whitesmoke;\n    background-color: slateblue;\n    border: none;\n    border-radius: 15px;\n    width: 300px;\n    height: 40px;\n    font-size: 18px;\n    font-family: 'Montserrat';\n}\n@media (max-width: 792px) {\n.main__cards {\n        display: flex;\n        justify-content: space-between;\n        flex-direction: column;\n        align-items: center;\n}\n.main__service-card {\n        width: 100%;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8139,7 +8156,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 500px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgb(182, 248, 59);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: yellow;\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: red;\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 650px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__statistics {\n    margin-top: 20px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 780px;\n    height: 160px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}\n.dashboard__stat {\n    font-size: 18px;\n    flex-grow: 1;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgb(182, 248, 59);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: yellow;\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: red;\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41790,7 +41807,41 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "dashboard__statistics" }, [
+              _c("div", { staticClass: "dashboard__stat" }, [
+                _vm._v(
+                  "\n                            Всего отзывов: " +
+                    _vm._s(this.allMarks) +
+                    "\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dashboard__stat" }, [
+                _vm._v(
+                  "\n                            Средняя оценка: " +
+                    _vm._s(this.averageMark) +
+                    "\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dashboard__stat" }, [
+                _vm._v(
+                  "\n                            Количество положительных отзывов: " +
+                    _vm._s(this.fiveMarks + this.fourMarks + this.threeMarks) +
+                    "\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dashboard__stat" }, [
+                _vm._v(
+                  "\n                            Количество отрицательных отзывов: " +
+                    _vm._s(this.twoMarks + this.oneMarks) +
+                    "\n                        "
+                )
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -41805,7 +41856,7 @@ var render = function() {
                 expression: "curCleanerId"
               }
             ],
-            staticClass: "modal__select",
+            staticClass: "select",
             on: {
               change: [
                 function($event) {

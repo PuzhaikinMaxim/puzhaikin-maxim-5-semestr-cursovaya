@@ -93,7 +93,6 @@ export default {
     .main__service-card {
         display: flex;
         flex-direction: column;
-        min-height: 195px;
         justify-content: space-between;
         max-width: 400px;
         background-color: lightseagreen;
