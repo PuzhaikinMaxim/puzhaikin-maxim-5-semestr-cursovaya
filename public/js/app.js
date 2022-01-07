@@ -2188,6 +2188,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8156,7 +8162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 980px;\n    height: 650px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n}\n.dashboard__statistics {\n    margin-top: 20px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 780px;\n    height: 160px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}\n.dashboard__stat {\n    font-size: 18px;\n    flex-grow: 1;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: springgreen;\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgb(182, 248, 59);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: yellow;\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: red;\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 1000px;\n    height: 650px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n    background-color: rgb(253, 251, 251);\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n    background-color: darkslategray;\n}\n.dashboard__statistics {\n    margin-top: 20px;\n    height: 160px;\n    display: flex;\n    justify-content: space-around;\n}\n.dashboard__stat-header {\n    font-size: 22px;\n    text-align: center;\n}\n.dashboard__stat-value {\n    font-size: 24px;\n    color: white\n}\n.dashboard__stat {\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n    justify-content: space-around;\n    background-color: cadetblue;\n    border-radius: 8px;\n    width: 240px;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: rgba(0, 255, 128, 0.678);\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgba(182, 248, 59, 0.678);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: rgba(255, 255, 0, 0.678);\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41, 0.678);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: rgba(255, 0, 0, 0.678);\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n.select-cleaner {\n    width: 280px;\n    height: 35px;\n    border-radius: 7px;\n    font-size: 16px;\n    font-weight: 600px;\n    transition: 1.5s;\n    border: none;\n    transition: .5s;\n    background-color: royalblue;\n    color: white;\n    font-family: 'Montserrat';\n}\n.main__cleaner-selection {\n    display: flex;\n    justify-content: center;\n    margin-top: 30px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41649,6 +41655,60 @@ var render = function() {
         _c("h2", { staticClass: "main__header" }, [_vm._v("Оценки уборщиков")]),
         _vm._v(" "),
         _c("div", { staticClass: "dashboard" }, [
+          _c("div", { staticClass: "main__cleaner-selection" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.curCleanerId,
+                    expression: "curCleanerId"
+                  }
+                ],
+                staticClass: "select-cleaner",
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.curCleanerId = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    function($event) {
+                      return _vm.updateMarks(_vm.curCleanerId)
+                    }
+                  ]
+                }
+              },
+              _vm._l(_vm.cleaners, function(cleaner) {
+                return _c(
+                  "option",
+                  {
+                    key: cleaner.id,
+                    domProps: { value: cleaner.id, selected: cleaner.id === -1 }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(cleaner.name) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "dashboard__content" }, [
             _c("div", { staticClass: "dashboard__diagramm" }, [
               _c(
@@ -41811,91 +41871,49 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "dashboard__statistics" }, [
               _c("div", { staticClass: "dashboard__stat" }, [
-                _vm._v(
-                  "\n                            Всего отзывов: " +
-                    _vm._s(this.allMarks) +
-                    "\n                        "
-                )
+                _c("div", { staticClass: "dashboard__stat-header" }, [
+                  _vm._v("Всего отзывов:")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dashboard__stat-value" }, [
+                  _vm._v(_vm._s(this.allMarks))
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "dashboard__stat" }, [
-                _vm._v(
-                  "\n                            Средняя оценка: " +
-                    _vm._s(this.averageMark) +
-                    "\n                        "
-                )
+                _c("div", { staticClass: "dashboard__stat-header" }, [
+                  _vm._v("Средняя оценка:")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dashboard__stat-value" }, [
+                  _vm._v(_vm._s(this.averageMark))
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "dashboard__stat" }, [
-                _vm._v(
-                  "\n                            Количество положительных отзывов: " +
-                    _vm._s(this.fiveMarks + this.fourMarks + this.threeMarks) +
-                    "\n                        "
-                )
+                _c("div", { staticClass: "dashboard__stat-header" }, [
+                  _vm._v("Положительные отзывы:")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dashboard__stat-value" }, [
+                  _vm._v(
+                    _vm._s(this.fiveMarks + this.fourMarks + this.threeMarks)
+                  )
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "dashboard__stat" }, [
-                _vm._v(
-                  "\n                            Количество отрицательных отзывов: " +
-                    _vm._s(this.twoMarks + this.oneMarks) +
-                    "\n                        "
-                )
+                _c("div", { staticClass: "dashboard__stat-header" }, [
+                  _vm._v("Отрицательные отзывы:")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dashboard__stat-value" }, [
+                  _vm._v(_vm._s(this.twoMarks + this.oneMarks))
+                ])
               ])
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.curCleanerId,
-                expression: "curCleanerId"
-              }
-            ],
-            staticClass: "select",
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.curCleanerId = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                function($event) {
-                  return _vm.updateMarks(_vm.curCleanerId)
-                }
-              ]
-            }
-          },
-          _vm._l(_vm.cleaners, function(cleaner) {
-            return _c(
-              "option",
-              {
-                key: cleaner.id,
-                domProps: { value: cleaner.id, selected: cleaner.id === -1 }
-              },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(cleaner.name) +
-                    "\n                "
-                )
-              ]
-            )
-          }),
-          0
-        )
+        ])
       ])
     ])
   ])

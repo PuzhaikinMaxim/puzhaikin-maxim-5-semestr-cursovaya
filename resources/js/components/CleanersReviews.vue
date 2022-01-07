@@ -4,6 +4,13 @@
             <div class="main__content">
                 <h2 class="main__header">Оценки уборщиков</h2>
                 <div class="dashboard">
+                <div class="main__cleaner-selection">
+                    <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="select-cleaner">
+                        <option v-for="cleaner in cleaners" v-bind:value="cleaner.id" v-bind:key="cleaner.id" v-bind:selected="cleaner.id === -1">
+                            {{cleaner.name}}
+                        </option>
+                    </select>
+                </div>
                     <div class="dashboard__content">
                         <div class="dashboard__diagramm">
                             <div class="dashboard__diagramm-item dashboard__diagramm-item_mark-five"
@@ -46,25 +53,24 @@
                         </div>
                         <div class="dashboard__statistics">
                             <div class="dashboard__stat">
-                                Всего отзывов: {{this.allMarks}}
+                                <div class="dashboard__stat-header">Всего отзывов:</div>
+                                <div class="dashboard__stat-value">{{this.allMarks}}</div>
                             </div>
                             <div class="dashboard__stat">
-                                Средняя оценка: {{this.averageMark}}
+                                <div class="dashboard__stat-header">Средняя оценка:</div>
+                                <div class="dashboard__stat-value">{{this.averageMark}}</div>
                             </div>
                             <div class="dashboard__stat">
-                                Количество положительных отзывов: {{this.fiveMarks+this.fourMarks+this.threeMarks}}
+                                <div class="dashboard__stat-header">Положительные отзывы:</div>
+                                <div class="dashboard__stat-value">{{this.fiveMarks+this.fourMarks+this.threeMarks}}</div>
                             </div>
                             <div class="dashboard__stat">
-                                Количество отрицательных отзывов: {{this.twoMarks+this.oneMarks}}
+                                <div class="dashboard__stat-header">Отрицательные отзывы:</div>
+                                <div class="dashboard__stat-value">{{this.twoMarks+this.oneMarks}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="select">
-                    <option v-for="cleaner in cleaners" v-bind:value="cleaner.id" v-bind:key="cleaner.id" v-bind:selected="cleaner.id === -1">
-                        {{cleaner.name}}
-                    </option>
-                </select>
             </div>
         </div>
     </div>
@@ -202,10 +208,11 @@ export default {
         margin-top: 30px;
         margin-left: auto;
         margin-right: auto;
-        max-width: 980px;
+        max-width: 1000px;
         height: 650px;
         border-radius: 20px;
         border: 3px solid slateblue;
+        background-color: rgb(253, 251, 251);
     }
 
     .dashboard__diagramm {
@@ -218,23 +225,34 @@ export default {
         border-radius: 20px;
         display: flex;
         align-items: flex-end;
+        background-color: darkslategray;
     }
 
     .dashboard__statistics {
         margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 780px;
         height: 160px;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-around;
+    }
+
+    .dashboard__stat-header {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .dashboard__stat-value {
+        font-size: 24px;
+        color: white
     }
 
     .dashboard__stat {
-        font-size: 18px;
-        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: cadetblue;
+        border-radius: 8px;
+        width: 240px;
     }
 
     .dashboard__diagramm-item {
@@ -247,23 +265,23 @@ export default {
     }
 
     .dashboard__diagramm-item_mark-five {
-        background-color: springgreen;
+        background-color: rgba(0, 255, 128, 0.678);
     }
 
     .dashboard__diagramm-item_mark-four {
-        background-color: rgb(182, 248, 59);
+        background-color: rgba(182, 248, 59, 0.678);
     }
 
     .dashboard__diagramm-item_mark-three {
-        background-color: yellow;
+        background-color: rgba(255, 255, 0, 0.678);
     }
 
     .dashboard__diagramm-item_mark-two {
-        background-color: rgb(255, 101, 41);
+        background-color: rgb(255, 101, 41, 0.678);
     }
 
     .dashboard__diagramm-item_mark-one {
-        background-color: red;
+        background-color: rgba(255, 0, 0, 0.678);
     }
 
     .dashboard__categories {
@@ -281,5 +299,25 @@ export default {
 
     .dashboard__diagram-item-value {
         font-size: 22px;
+    }
+
+    .select-cleaner {
+        width: 280px;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 16px;
+        font-weight: 600px;
+        transition: 1.5s;
+        border: none;
+        transition: .5s;
+        background-color: royalblue;
+        color: white;
+        font-family: 'Montserrat';
+    }
+
+    .main__cleaner-selection {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
     }
 </style>
