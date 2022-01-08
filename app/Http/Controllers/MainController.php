@@ -214,8 +214,10 @@ class MainController extends Controller
                     count(rating) FILTER (WHERE rating = 3) as three_mark,
                     count(rating) FILTER (WHERE rating = 2) as two_mark,
                     count(rating) FILTER (WHERE rating = 1) as one_mark,
-                    count(rating) as all_marks
+                    count(rating) as all_marks,
+                    count(a.cleaner_id) FILTER (WHERE a.review_id IS NULL) as no_marks
                     from reviews
+                    right join active_reviews a on a.review_id = reviews.id
                     '
                     );
                 }
@@ -225,9 +227,11 @@ class MainController extends Controller
                     count(rating) FILTER (WHERE rating = 3) as three_mark,
                     count(rating) FILTER (WHERE rating = 2) as two_mark,
                     count(rating) FILTER (WHERE rating = 1) as one_mark,
-                    count(rating) as all_marks
+                    count(rating) as all_marks,
+                    count(a.cleaner_id) FILTER (WHERE a.review_id IS NULL) as no_marks
                     from reviews
-                    where cleaner_id = ?
+                    right join active_reviews a on a.review_id = reviews.id
+                    where a.cleaner_id = ?
                     ',[$request->id]);
                 }
             }

@@ -4,14 +4,15 @@
             <div class="main__content">
                 <h2 class="main__header">Оценки уборщиков</h2>
                 <div class="dashboard">
-                <div class="main__cleaner-selection">
-                    <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="select-cleaner">
-                        <option v-for="cleaner in cleaners" v-bind:value="cleaner.id" v-bind:key="cleaner.id" v-bind:selected="cleaner.id === -1">
-                            {{cleaner.name}}
-                        </option>
-                    </select>
-                </div>
+                    <div class="main__cleaner-selection">
+                        <select v-model="curCleanerId" v-on:change="updateMarks(curCleanerId)" class="select-cleaner">
+                            <option v-for="cleaner in cleaners" v-bind:value="cleaner.id" v-bind:key="cleaner.id" v-bind:selected="cleaner.id === -1">
+                                {{cleaner.name}}
+                            </option>
+                        </select>
+                    </div>
                     <div class="dashboard__content">
+                        <div class="dashboard__pie"><pie :chartdata="pie_data" ref="pie"></pie></div>
                         <div class="dashboard__diagramm">
                             <div class="dashboard__diagramm-item dashboard__diagramm-item_mark-five"
                             v-bind:style="[this.fiveMarks > 0 ? {'height': this.fiveMarksRatio + '%','min-height': '24px'} : {'height': '0'}]">
@@ -77,7 +78,11 @@
 </template>
 
 <script>
+import Pie from './PieChart.vue'
 export default {
+    components: {
+        Pie
+    },
     data(){
         return{
             cleaners: [],
@@ -87,7 +92,18 @@ export default {
             threeMarks: 0,
             twoMarks: 0,
             oneMarks: 0,
-            allMarks: 0
+            allMarks: 0,
+            noMarks: 0,
+            pie_data: {hoverBackgroundColor: "red",
+                hoverBorderWidth: 10,
+                labels: ["Оценка проставлена", "Оценка не проставлена"],
+                datasets: [
+                {
+                    label: "Data One",
+                    backgroundColor: ["#41B883", "#E46651"],
+                    data: [this.allMarks,this.noMarks]
+                }
+            ]}
         }
     },
     computed: {
@@ -154,48 +170,59 @@ export default {
         updateMarks(id){
             if(id != -1){
                 axios.get('/api/getCleanersReviews', {params: {id}}).then(response=>{
-                    this.allMarks = response.data[0].all_marks
-                    this.fiveMarks = response.data[0].five_mark
-                    this.fourMarks = response.data[0].four_mark
-                    this.threeMarks = response.data[0].three_mark
-                    this.twoMarks = response.data[0].two_mark
-                    this.oneMarks = response.data[0].one_mark
+                    this.setMarks(response)
+                    this.updatePieData()
                 }).catch((error) => {
 
                 })
             }
             else {
                 axios.get('/api/getCleanersReviews').then(response=>{
-                    this.allMarks = response.data[0].all_marks
-                    this.fiveMarks = response.data[0].five_mark
-                    this.fourMarks = response.data[0].four_mark
-                    this.threeMarks = response.data[0].three_mark
-                    this.twoMarks = response.data[0].two_mark
-                    this.oneMarks = response.data[0].one_mark
+                    this.setMarks(response)
+                    this.updatePieData()
                 }).catch((error) => {
 
                 })
             }
-        }
-    },
-    created() {
-        axios.get('/api/getCleanersReviews').then(response=>{
+        },
+        updatePieData(){
+            let array = [this.allMarks, this.noMarks]
+            this.pie_data = {
+                hoverBackgroundColor: "red",
+                hoverBorderWidth: 10,
+                labels: ["Оценка проставлена", "Оценка не проставлена"],
+                datasets: [
+                {
+                    label: "Data One",
+                    backgroundColor: ["#41B883", "#E46651"],
+                    data: array
+                }
+                ]
+            }
+            this.$refs.pie.updateChart(this.pie_data)
+        },
+        setMarks(response){
             this.allMarks = response.data[0].all_marks
             this.fiveMarks = response.data[0].five_mark
             this.fourMarks = response.data[0].four_mark
             this.threeMarks = response.data[0].three_mark
             this.twoMarks = response.data[0].two_mark
             this.oneMarks = response.data[0].one_mark
+            this.noMarks = response.data[0].no_marks
+        }
+    },
+    created() {
+        axios.get('/api/getCleanersReviews').then(response=>{
+            this.setMarks(response)
+            this.updatePieData()
         }).catch((error) => {
 
         })
         axios.get('/api/getAllCleaners').then(response=>{
-            //this.cleaners = response.data;
             this.cleaners.push({id: -1, name: 'Все уборщики'})
             for(var i = 0; i < response.data.length; i++){
                 this.cleaners.push({id: response.data[i].id, name: response.data[i].name})
             }
-            console.log(this.cleaners)
         }).catch((error) => {
 
         })
@@ -209,7 +236,7 @@ export default {
         margin-left: auto;
         margin-right: auto;
         max-width: 1000px;
-        height: 650px;
+        min-height: 970px;
         border-radius: 20px;
         border: 3px solid slateblue;
         background-color: rgb(253, 251, 251);
@@ -319,5 +346,12 @@ export default {
         display: flex;
         justify-content: center;
         margin-top: 30px;
+    }
+
+    .dashboard__pie {
+        max-width: 300px;
+        max-height: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>
