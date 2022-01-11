@@ -124,7 +124,7 @@ export default {
         font-size: 20px;
         font-family: 'Montserrat';
         border-radius: 20px;
-        margin-top: 20px;
+        margin-top: auto;
         background-color: slateblue;
         color: whitesmoke;
         width: 100%;
@@ -132,14 +132,21 @@ export default {
 
     .main__user-cleaner-card {
         background-color: lightseagreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         color: whitesmoke;
         padding: 15px;
         max-width: 400px;
+        min-height: 250px;
         border-radius: 25px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main__user-cleaner-info {
         margin-top: 15px;
+        min-height: 34px;
         font-size: 18px;
     }
 

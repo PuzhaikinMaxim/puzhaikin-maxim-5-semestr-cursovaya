@@ -2196,6 +2196,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2212,13 +2228,14 @@ __webpack_require__.r(__webpack_exports__);
       oneMarks: 0,
       allMarks: 0,
       noMarks: 0,
+      reviews: [],
       pie_data: {
         hoverBackgroundColor: "red",
         hoverBorderWidth: 10,
         labels: ["Оценка проставлена", "Оценка не проставлена"],
         datasets: [{
           label: "Data One",
-          backgroundColor: ["#41B883", "#E46651"],
+          backgroundColor: ["#41B883", "#808080"],
           data: [this.allMarks, this.noMarks]
         }]
       }
@@ -2309,7 +2326,7 @@ __webpack_require__.r(__webpack_exports__);
         labels: ["Оценка проставлена", "Оценка не проставлена"],
         datasets: [{
           label: "Data One",
-          backgroundColor: ["#41B883", "#E46651"],
+          backgroundColor: ["#41B883", "#808080"],
           data: array
         }]
       };
@@ -2323,24 +2340,42 @@ __webpack_require__.r(__webpack_exports__);
       this.twoMarks = response.data[0].two_mark;
       this.oneMarks = response.data[0].one_mark;
       this.noMarks = response.data[0].no_marks;
+    },
+    getReviews: function getReviews() {
+      var _this2 = this;
+
+      if (this.curCleanerId == -1) {
+        axios.get('/api/getReviews').then(function (response) {
+          _this2.reviews = response.data;
+        })["catch"](function (error) {});
+      } else {
+        var curCleanerId = this.curCleanerId;
+        axios.get('/api/getReviews', {
+          params: {
+            curCleanerId: curCleanerId
+          }
+        }).then(function (response) {
+          _this2.reviews = response.data;
+        })["catch"](function (error) {});
+      }
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios.get('/api/getCleanersReviews').then(function (response) {
-      _this2.setMarks(response);
+      _this3.setMarks(response);
 
-      _this2.updatePieData();
+      _this3.updatePieData();
     })["catch"](function (error) {});
     axios.get('/api/getAllCleaners').then(function (response) {
-      _this2.cleaners.push({
+      _this3.cleaners.push({
         id: -1,
         name: 'Все уборщики'
       });
 
       for (var i = 0; i < response.data.length; i++) {
-        _this2.cleaners.push({
+        _this3.cleaners.push({
           id: response.data[i].id,
           name: response.data[i].name
         });
@@ -22906,7 +22941,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 1000px;\n    min-height: 970px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n    background-color: rgb(253, 251, 251);\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n    background-color: darkslategray;\n}\n.dashboard__statistics {\n    margin-top: 20px;\n    height: 160px;\n    display: flex;\n    justify-content: space-around;\n}\n.dashboard__stat-header {\n    font-size: 22px;\n    text-align: center;\n}\n.dashboard__stat-value {\n    font-size: 24px;\n    color: white\n}\n.dashboard__stat {\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n    justify-content: space-around;\n    background-color: cadetblue;\n    border-radius: 8px;\n    width: 240px;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: rgba(0, 255, 128, 0.678);\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgba(182, 248, 59, 0.678);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: rgba(255, 255, 0, 0.678);\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41, 0.678);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: rgba(255, 0, 0, 0.678);\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n.select-cleaner {\n    width: 280px;\n    height: 35px;\n    border-radius: 7px;\n    font-size: 16px;\n    font-weight: 600px;\n    transition: 1.5s;\n    border: none;\n    transition: .5s;\n    background-color: royalblue;\n    color: white;\n    font-family: 'Montserrat';\n}\n.main__cleaner-selection {\n    display: flex;\n    justify-content: center;\n    margin-top: 30px;\n}\n.dashboard__pie {\n    max-width: 300px;\n    max-height: 300px;\n    margin-left: auto;\n    margin-right: auto;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dashboard__content {\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 1000px;\n    min-height: 970px;\n    border-radius: 20px;\n    border: 3px solid slateblue;\n    background-color: rgb(253, 251, 251);\n}\n.dashboard__diagramm {\n    border: 1px solid blue;\n    max-width: 780px;\n    height: 400px;\n    margin-top: 30px;\n    margin-left: auto;\n    margin-right: auto;\n    border-radius: 20px;\n    display: flex;\n    align-items: flex-end;\n    background-color: darkslategray;\n}\n.dashboard__statistics {\n    margin-top: 20px;\n    min-height: 160px;\n    display: flex;\n    justify-content: space-around;\n}\n.dashboard__stat-header {\n    font-size: 22px;\n    text-align: center;\n}\n.dashboard__stat-value {\n    font-size: 24px;\n    color: white\n}\n.dashboard__stat {\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n    justify-content: space-around;\n    background-color: cadetblue;\n    border-radius: 8px;\n    width: 240px;\n}\n.dashboard__diagramm-item {\n    flex: 1;\n    border-radius: 20px;\n    transition: .5s;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dashboard__diagramm-item_mark-five {\n    background-color: rgba(0, 255, 128, 0.678);\n}\n.dashboard__diagramm-item_mark-four {\n    background-color: rgba(182, 248, 59, 0.678);\n}\n.dashboard__diagramm-item_mark-three {\n    background-color: rgba(255, 255, 0, 0.678);\n}\n.dashboard__diagramm-item_mark-two {\n    background-color: rgb(255, 101, 41, 0.678);\n}\n.dashboard__diagramm-item_mark-one {\n    background-color: rgba(255, 0, 0, 0.678);\n}\n.dashboard__categories {\n    display: flex;\n    justify-content: space-around;\n    max-width: 780px;\n    margin-top: 5px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.dashboard__category {\n    font-size: 26px;\n}\n.dashboard__diagram-item-value {\n    font-size: 22px;\n}\n.select-cleaner {\n    width: 280px;\n    height: 35px;\n    border-radius: 7px;\n    font-size: 16px;\n    font-weight: 600px;\n    transition: 1.5s;\n    border: none;\n    transition: .5s;\n    background-color: royalblue;\n    color: white;\n    font-family: 'Montserrat';\n}\n.main__cleaner-selection {\n    display: flex;\n    justify-content: center;\n    margin-top: 30px;\n}\n.dashboard__pie {\n    max-width: 300px;\n    max-height: 300px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.cleaners-reviews__content {\n    max-width: 1200px;\n    margin-top: 50px;\n    margin-right: auto;\n    margin-left: auto;\n    min-height: 60px;\n    border: 3px solid slateblue;\n    background-color: white;\n    border-radius: 20px;\n}\n.cleaners-reviews__list {\n    max-width: 1100px;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 40px;\n    margin-bottom: 40px;\n}\n.cleaners-reviews__review {\n    background-color: rgb(223, 223, 223);\n    margin-top: 20px;\n    padding: 15px 15px 15px 15px;\n    border-radius: 10px;\n}\n.cleaners-reviews__reviewer-name {\n    font-size: 22px;\n    font-weight: 700;\n}\n.cleaners-reviews__cleaner-name {\n    margin-top: 7px;\n    font-size: 20px;\n}\n.cleaners-reviews__rating {\n    margin-top: 7px;\n    font-size: 20px;\n}\n.cleaners-reviews__review__title {\n    margin-top: 7px;\n    font-size: 20px;\n}\n.cleaners-reviews__review-text {\n    margin-top: 12px;\n    font-size: 16px;\n}\n.cleaners-reviews__show-reviews-button {\n    width: 250px;\n    height: 50px;\n    font-family: 'Montserrat';\n    font-size: 20px;\n    border-radius: 10px;\n    border: none;\n    background-color: slateblue;\n    color: white;\n}\n.cleaners-reviews__button-container {\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 30px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n}\n@media (max-width: 1000px) {\n.dashboard__statistics {\n        display: grid;\n        grid-template-columns: 1fr 1fr;\n        grid-template-rows: 1fr 1fr;\n        row-gap: 20px;\n        -moz-column-gap: 20px;\n             column-gap: 20px;\n        height: 300px;\n        margin-left: auto;\n        margin-right: auto;\n        max-width: 995px;\n}\n.dashboard__stat {\n        width: auto;\n}\n.dashboard__content {\n        border-radius: 0px;\n        border: none;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23051,7 +23086,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main__add-cleaner-form {\n    margin-top: 25px;\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n    border: 2px solid slateblue;\n    max-width: 500px;\n    border-radius: 30px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.main__add-cleaner-input {\n    border: none;\n    height: 40px;\n    font-size: 16px;\n    font-family: 'Montserrat';\n    border: 2px solid slateblue;\n    border-radius: 20px;\n    transition: .25s;\n    margin-top: 15px;\n}\n.main__delete-cleaner {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 20px;\n    background-color: slateblue;\n    color: whitesmoke;\n    width: 100%;\n}\n.main__user-cleaner-card {\n    background-color: lightseagreen;\n    color: whitesmoke;\n    padding: 15px;\n    max-width: 400px;\n    border-radius: 25px;\n}\n.main__user-cleaner-info {\n    margin-top: 15px;\n    font-size: 18px;\n}\n.main__add-cleaner-submit {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 20px;\n    background-color: slateblue;\n    color: whitesmoke;\n}\n.main__add-cleaner-input:focus {\n    outline: none;\n    border: 3px solid blue;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main__add-cleaner-form {\n    margin-top: 25px;\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n    border: 2px solid slateblue;\n    max-width: 500px;\n    border-radius: 30px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.main__add-cleaner-input {\n    border: none;\n    height: 40px;\n    font-size: 16px;\n    font-family: 'Montserrat';\n    border: 2px solid slateblue;\n    border-radius: 20px;\n    transition: .25s;\n    margin-top: 15px;\n}\n.main__delete-cleaner {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: auto;\n    background-color: slateblue;\n    color: whitesmoke;\n    width: 100%;\n}\n.main__user-cleaner-card {\n    background-color: lightseagreen;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    color: whitesmoke;\n    padding: 15px;\n    max-width: 400px;\n    min-height: 250px;\n    border-radius: 25px;\n    margin-left: auto;\n    margin-right: auto;\n}\n.main__user-cleaner-info {\n    margin-top: 15px;\n    min-height: 34px;\n    font-size: 18px;\n}\n.main__add-cleaner-submit {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 20px;\n    background-color: slateblue;\n    color: whitesmoke;\n}\n.main__add-cleaner-input:focus {\n    outline: none;\n    border: 3px solid blue;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -77926,9 +77961,7 @@ var render = function() {
           { staticClass: "header__links" },
           [
             _c("router-link", { attrs: { to: "/admin/registerCleaner" } }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _vm._v("Зарегистрировать уборщика")
-              ])
+              _c("a", { attrs: { href: "#" } }, [_vm._v("Уборщики")])
             ]),
             _vm._v(" "),
             _c(
@@ -77936,7 +77969,7 @@ var render = function() {
               { attrs: { to: "/admin/addAdditionalService" } },
               [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v("Изменить список доп. услуг")
+                  _vm._v("Дополнительные услуги")
                 ])
               ]
             ),
@@ -78431,6 +78464,62 @@ var render = function() {
                 ])
               ])
             ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cleaners-reviews" }, [
+          _c("div", { staticClass: "cleaners-reviews__content" }, [
+            _c("div", { staticClass: "cleaners-reviews__button-container" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "cleaners-reviews__show-reviews-button",
+                  on: { click: _vm.getReviews }
+                },
+                [_vm._v("Показать все отзывы")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cleaners-reviews__list" },
+              _vm._l(_vm.reviews, function(review, index) {
+                return _c(
+                  "div",
+                  { key: index, staticClass: "cleaners-reviews__review" },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "cleaners-reviews__reviewer-name" },
+                      [_vm._v("Имя клиента: " + _vm._s(review.user_name))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "cleaners-reviews__cleaner-name" },
+                      [_vm._v("ФИО уборщика: " + _vm._s(review.cleaner_name))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "cleaners-reviews__rating" }, [
+                      _vm._v("Оценка: " + _vm._s(review.rating))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "cleaners-reviews__review__title" },
+                      [_vm._v("Заголовок: " + _vm._s(review.review_title))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "cleaners-reviews__review-text" },
+                      [_vm._v(_vm._s(review.review_text))]
+                    )
+                  ]
+                )
+              }),
+              0
+            )
           ])
         ])
       ])

@@ -72,6 +72,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="cleaners-reviews">
+                    <div class="cleaners-reviews__content">
+                        <div class="cleaners-reviews__button-container">
+                            <button v-on:click="getReviews" class="cleaners-reviews__show-reviews-button">Показать все отзывы</button>
+                        </div>
+                        <div class="cleaners-reviews__list">
+                            <div class="cleaners-reviews__review" v-for="(review, index) in reviews" v-bind:key="index">
+                                <div class="cleaners-reviews__reviewer-name">Имя клиента: {{review.user_name}}</div>
+                                <div class="cleaners-reviews__cleaner-name">ФИО уборщика: {{review.cleaner_name}}</div>
+                                <div class="cleaners-reviews__rating">Оценка: {{review.rating}}</div>
+                                <div class="cleaners-reviews__review__title">Заголовок: {{review.review_title}}</div>
+                                <div class="cleaners-reviews__review-text">{{review.review_text}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -94,13 +110,14 @@ export default {
             oneMarks: 0,
             allMarks: 0,
             noMarks: 0,
+            reviews: [],
             pie_data: {hoverBackgroundColor: "red",
                 hoverBorderWidth: 10,
                 labels: ["Оценка проставлена", "Оценка не проставлена"],
                 datasets: [
                 {
                     label: "Data One",
-                    backgroundColor: ["#41B883", "#E46651"],
+                    backgroundColor: ["#41B883", "#808080"],
                     data: [this.allMarks,this.noMarks]
                 }
             ]}
@@ -194,7 +211,7 @@ export default {
                 datasets: [
                 {
                     label: "Data One",
-                    backgroundColor: ["#41B883", "#E46651"],
+                    backgroundColor: ["#41B883", "#808080"],
                     data: array
                 }
                 ]
@@ -209,6 +226,23 @@ export default {
             this.twoMarks = response.data[0].two_mark
             this.oneMarks = response.data[0].one_mark
             this.noMarks = response.data[0].no_marks
+        },
+        getReviews(){
+            if(this.curCleanerId == -1){
+                axios.get('/api/getReviews').then(response=>{
+                    this.reviews = response.data
+                }).catch((error) => {
+
+                })
+            }
+            else{
+                var curCleanerId = this.curCleanerId
+                axios.get('/api/getReviews', {params: {curCleanerId}}).then(response=>{
+                    this.reviews = response.data
+                }).catch((error) => {
+                    
+                })
+            }
         }
     },
     created() {
@@ -257,7 +291,7 @@ export default {
 
     .dashboard__statistics {
         margin-top: 20px;
-        height: 160px;
+        min-height: 160px;
         display: flex;
         justify-content: space-around;
     }
@@ -353,5 +387,97 @@ export default {
         max-height: 300px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .cleaners-reviews__content {
+        max-width: 1200px;
+        margin-top: 50px;
+        margin-right: auto;
+        margin-left: auto;
+        min-height: 60px;
+        border: 3px solid slateblue;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .cleaners-reviews__list {
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .cleaners-reviews__review {
+        background-color: rgb(223, 223, 223);
+        margin-top: 20px;
+        padding: 15px 15px 15px 15px;
+        border-radius: 10px;
+    }
+
+    .cleaners-reviews__reviewer-name {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .cleaners-reviews__cleaner-name {
+        margin-top: 7px;
+        font-size: 20px;
+    }
+
+    .cleaners-reviews__rating {
+        margin-top: 7px;
+        font-size: 20px;
+    }
+
+    .cleaners-reviews__review__title {
+        margin-top: 7px;
+        font-size: 20px;
+    }
+
+    .cleaners-reviews__review-text {
+        margin-top: 12px;
+        font-size: 16px;
+    }
+
+    .cleaners-reviews__show-reviews-button {
+        width: 250px;
+        height: 50px;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: slateblue;
+        color: white;
+    }
+
+    .cleaners-reviews__button-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        max-width: fit-content;
+    }
+
+    @media (max-width: 1000px) {
+        .dashboard__statistics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 20px;
+            column-gap: 20px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 995px;
+        }
+
+        .dashboard__stat {
+            width: auto;
+        }
+
+        .dashboard__content {
+            border-radius: 0px;
+            border: none;
+        }
     }
 </style>

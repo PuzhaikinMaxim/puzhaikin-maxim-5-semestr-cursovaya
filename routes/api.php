@@ -67,3 +67,5 @@ Route::post('/addService', [App\Http\Controllers\MainController::class, 'addServ
 Route::post('/searchReviews', [App\Http\Controllers\MainController::class, 'searchReviews'])->name('searchReviews');
 
 Route::get('/getCleanersReviews', [App\Http\Controllers\MainController::class, 'getCleanersReviews'])->name('getCleanersReviews');
+
+Route::get('/getReviews', [App\Http\Controllers\MainController::class, 'getReviews'])->name('getReviews');

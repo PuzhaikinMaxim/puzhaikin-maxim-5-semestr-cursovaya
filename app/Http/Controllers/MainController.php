@@ -238,6 +238,30 @@ class MainController extends Controller
         }
     }
 
+    public function getReviews(Request $request){
+        if(Auth::check()){
+            if(Auth::user()->role_id === 3){
+                if($request->curCleanerId == null){
+                    return DB::select('select u.name as user_name, cl.name as cleaner_name, rating, r.review_text, r.review_title
+                        from reviews r
+                        join users u on u.id = r.client_id
+                        join users cl on cl.id = r.cleaner_id
+                        order by rating desc'
+                    );
+                }
+                else{
+                    return DB::select('select u.name as user_name, cl.name as cleaner_name, rating, r.review_text, r.review_title
+                    from reviews r
+                    join users u on u.id = r.client_id
+                    join users cl on cl.id = r.cleaner_id
+                    where r.cleaner_id = ?
+                    order by rating desc
+                    ',[$request->curCleanerId]);
+                }
+            }
+        }
+    }
+
     public function getAllCleaners(Request $request){
         if(Auth::check()){
             if(Auth::user()->role_id === 3) {
