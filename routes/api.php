@@ -69,3 +69,5 @@ Route::post('/searchReviews', [App\Http\Controllers\MainController::class, 'sear
 Route::get('/getCleanersReviews', [App\Http\Controllers\MainController::class, 'getCleanersReviews'])->name('getCleanersReviews');
 
 Route::get('/getReviews', [App\Http\Controllers\MainController::class, 'getReviews'])->name('getReviews');
+
+Route::post('/updateUserData', [App\Http\Controllers\MainController::class, 'updateUserData'])->name('updateUserData');

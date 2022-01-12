@@ -427,4 +427,25 @@ class MainController extends Controller
             abort(401);
         }
     }
+
+    public function updateUserData(Request $request){
+        if(Auth::check()){
+
+            //dd($request->email);
+            $request->validate([
+                'email' => ['email']
+            ]);
+
+            DB::update('update users set name = ?, email = ? where id = ?',[$request->username,$request->email,Auth::user()->id]);
+            if($request->has('old_password','new_password')){
+                $request->validate([
+                    'new_password' => ['min:6']
+                ]);
+                if(Auth::attempt(['email' => $request->email, 'password' => $request->old_password])){
+                    dd(DB::update('update users set password = ? where id = ?',[Hash::make($request->new_password),Auth::user()->id]));
+                }
+            }
+            Auth::attempt(['email' => $request->email, 'password' => $request->new_password]);
+        }
+    }
 }

@@ -1982,6 +1982,69 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChangeUserDataComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChangeUserDataComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      email: '',
+      username: '',
+      old_password: '',
+      new_password: '',
+      is_successful: false
+    };
+  },
+  methods: {
+    changeUserData: function changeUserData() {
+      var _this = this;
+
+      var email = this.email;
+      var username = this.username;
+      var old_password = this.old_password;
+      var new_password = this.new_password;
+      axios.post('/api/updateUserData', {
+        email: email,
+        username: username,
+        old_password: old_password,
+        new_password: new_password
+      }).then(function (response) {
+        _this.is_successful = true;
+      });
+    }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    axios.get('/api/GetUser').then(function (response) {
+      _this2.email = response.data.email;
+      _this2.username = response.data.name;
+      console.log(response.data);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanerMainPage.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CleanerMainPage.vue?vue&type=script&lang=js& ***!
@@ -3468,6 +3531,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _ChangeUserDataComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChangeUserDataComponent.vue */ "./resources/js/components/ChangeUserDataComponent.vue");
 //
 //
 //
@@ -3490,7 +3554,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ChangeUserDataForm: _ChangeUserDataComponent_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
   data: function data() {
     return {
       errors: [],
@@ -76587,6 +76656,45 @@ component.options.__file = "resources/js/components/AdminMenu.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ChangeUserDataComponent.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/ChangeUserDataComponent.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ChangeUserDataComponent_vue_vue_type_template_id_71f39006___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChangeUserDataComponent.vue?vue&type=template&id=71f39006& */ "./resources/js/components/ChangeUserDataComponent.vue?vue&type=template&id=71f39006&");
+/* harmony import */ var _ChangeUserDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChangeUserDataComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ChangeUserDataComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ChangeUserDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ChangeUserDataComponent_vue_vue_type_template_id_71f39006___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ChangeUserDataComponent_vue_vue_type_template_id_71f39006___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ChangeUserDataComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CleanerMainPage.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/CleanerMainPage.vue ***!
@@ -77178,6 +77286,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ChangeUserDataComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/ChangeUserDataComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangeUserDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChangeUserDataComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChangeUserDataComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangeUserDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/CleanerMainPage.vue?vue&type=script&lang=js&":
 /*!******************************************************************************!*\
   !*** ./resources/js/components/CleanerMainPage.vue?vue&type=script&lang=js& ***!
@@ -77527,6 +77651,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMenu_vue_vue_type_template_id_88ecbf1a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMenu_vue_vue_type_template_id_88ecbf1a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminMenu.vue?vue&type=template&id=88ecbf1a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminMenu.vue?vue&type=template&id=88ecbf1a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ChangeUserDataComponent.vue?vue&type=template&id=71f39006&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/ChangeUserDataComponent.vue?vue&type=template&id=71f39006& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangeUserDataComponent_vue_vue_type_template_id_71f39006___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangeUserDataComponent_vue_vue_type_template_id_71f39006___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangeUserDataComponent_vue_vue_type_template_id_71f39006___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChangeUserDataComponent.vue?vue&type=template&id=71f39006& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChangeUserDataComponent.vue?vue&type=template&id=71f39006&");
 
 
 /***/ }),
@@ -78018,6 +78159,136 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChangeUserDataComponent.vue?vue&type=template&id=71f39006&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChangeUserDataComponent.vue?vue&type=template&id=71f39006& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "user-data-change-form" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.username,
+          expression: "username"
+        }
+      ],
+      staticClass: "main__change-user-data-input",
+      attrs: { type: "text", placeholder: "Имя пользователя" },
+      domProps: { value: _vm.username },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.username = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.email,
+          expression: "email"
+        }
+      ],
+      staticClass: "main__change-user-data-input",
+      attrs: { type: "text", placeholder: "Электронная почта" },
+      domProps: { value: _vm.email },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.email = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.old_password,
+          expression: "old_password"
+        }
+      ],
+      staticClass: "main__change-user-data-input",
+      attrs: { type: "password", placeholder: "Старый пароль" },
+      domProps: { value: _vm.old_password },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.old_password = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.new_password,
+          expression: "new_password"
+        }
+      ],
+      staticClass: "main__change-user-data-input",
+      attrs: { type: "password", placeholder: "Новый пароль" },
+      domProps: { value: _vm.new_password },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.new_password = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "main__change-user-data-submit",
+        on: {
+          click: function($event) {
+            return _vm.changeUserData()
+          }
+        }
+      },
+      [_vm._v("Подтвердить изменения")]
+    ),
+    _vm._v(" "),
+    _vm.is_successful
+      ? _c("div", [_vm._v("Данные были успешно изменены")])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -80167,70 +80438,79 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "main" }, [
-      _c("div", { staticClass: "main__content" }, [
-        _c("h2", { staticClass: "main__header" }, [_vm._v("Активные заказы")]),
-        _vm._v(" "),
-        _vm.isHaveActiveOrders
-          ? _c("div", { staticClass: "main__hidden-message" }, [
-              _vm._v("У вас нет активных заказов")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "main__cards" },
-          _vm._l(_vm.orders, function(order) {
-            return _c(
-              "div",
-              { key: order.id, staticClass: "main__order-card" },
-              [
-                _c("div", { staticClass: "main__order-info-item" }, [
-                  _vm._v("ФИО уборщика: " + _vm._s(order.name))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "main__order-info-item" }, [
-                  _vm._v(
-                    "Дата и время уборки: " + _vm._s(order.order_date_time)
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "main__order-info-item" }, [
-                  _vm._v("Количество комнат: " + _vm._s(order.rooms_amount))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "main__order-info-item" }, [
-                  _vm._v(
-                    "Дополнительные услуги: " +
-                      _vm._s(order.additional_services)
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "main__order-info-item" }, [
-                  _vm._v("Адрес: " + _vm._s(order.address))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "main__order-info-item" }, [
-                  _vm._v("Итого: " + _vm._s(order.total_price))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "main__order-card-button",
-                    on: {
-                      click: function($event) {
-                        return _vm.cancelOrder(order)
+      _c(
+        "div",
+        { staticClass: "main__content" },
+        [
+          _c("ChangeUserDataForm"),
+          _vm._v(" "),
+          _c("h2", { staticClass: "main__header" }, [
+            _vm._v("Активные заказы")
+          ]),
+          _vm._v(" "),
+          _vm.isHaveActiveOrders
+            ? _c("div", { staticClass: "main__hidden-message" }, [
+                _vm._v("У вас нет активных заказов")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "main__cards" },
+            _vm._l(_vm.orders, function(order) {
+              return _c(
+                "div",
+                { key: order.id, staticClass: "main__order-card" },
+                [
+                  _c("div", { staticClass: "main__order-info-item" }, [
+                    _vm._v("ФИО уборщика: " + _vm._s(order.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "main__order-info-item" }, [
+                    _vm._v(
+                      "Дата и время уборки: " + _vm._s(order.order_date_time)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "main__order-info-item" }, [
+                    _vm._v("Количество комнат: " + _vm._s(order.rooms_amount))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "main__order-info-item" }, [
+                    _vm._v(
+                      "Дополнительные услуги: " +
+                        _vm._s(order.additional_services)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "main__order-info-item" }, [
+                    _vm._v("Адрес: " + _vm._s(order.address))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "main__order-info-item" }, [
+                    _vm._v("Итого: " + _vm._s(order.total_price))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "main__order-card-button",
+                      on: {
+                        click: function($event) {
+                          return _vm.cancelOrder(order)
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("Отменить заказ")]
-                )
-              ]
-            )
-          }),
-          0
-        )
-      ])
+                    },
+                    [_vm._v("Отменить заказ")]
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ],
+        1
+      )
     ])
   ])
 }
