@@ -40,7 +40,7 @@ Route::put('/makeOrder', [App\Http\Controllers\MainController::class, 'makeOrder
 
 Route::post('/getCleanerOrders', [App\Http\Controllers\MainController::class, 'getCleanerOrders'])->name('getCleanerOrders');
 
-Route::delete('/deleteActiveOrder', [App\Http\Controllers\MainController::class, 'deleteActiveOrder'])->name('deleteActiveOrder');
+Route::post('/deleteActiveOrder', [App\Http\Controllers\MainController::class, 'deleteActiveOrder'])->name('deleteActiveOrder');
 
 Route::put('/addActiveReview', [App\Http\Controllers\MainController::class, 'addActiveReview'])->name('addActiveReview');
 
@@ -71,3 +71,7 @@ Route::get('/getCleanersReviews', [App\Http\Controllers\MainController::class, '
 Route::get('/getReviews', [App\Http\Controllers\MainController::class, 'getReviews'])->name('getReviews');
 
 Route::post('/updateUserData', [App\Http\Controllers\MainController::class, 'updateUserData'])->name('updateUserData');
+
+Route::get('/getReviewsOnCleaner', [App\Http\Controllers\MainController::class, 'getReviewsOnCleaner'])->name('getReviewsOnCleaner');
+
+Route::get('/getAllUsersInfo', [App\Http\Controllers\MainController::class, 'getAllUsersInfo'])->name('getAllUsersInfo');

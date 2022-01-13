@@ -6,7 +6,7 @@
                 <img class="header__logo-image" src="Images/serviceLogo.svg" alt="Логотип компании с изображением инструментов для мытья">
             </div>
             <div class="header__links">
-                <router-link to="/client/userWelcomePage"><a href="#">Активные заказы</a></router-link>
+                <router-link to="/client/userWelcomePage"><a href="#">ЛК</a></router-link>
                 <router-link to="/client/orderCleaning"><a href="#">Сделать заказ</a></router-link>
                 <router-link to="/client/makeReview"><a href="#">Оставить отзыв</a></router-link>
                 <a href="#" @click.prevent="logout">Выйти</a>

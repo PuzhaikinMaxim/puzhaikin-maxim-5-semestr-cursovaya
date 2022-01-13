@@ -21,6 +21,8 @@ import ClientMenu from './components/ClientMenu.vue'
 import CleanerMenu from './components/CleanerMenu.vue'
 import AdminMenu from './components/AdminMenu.vue'
 import GuestMenu from './components/GuestMenu.vue'
+import CleanerReviews from './components/CleanerReviews.vue'
+import AdminWelcomePage from './components/AdminWelcomePage.vue'
 
 //const VueRouter = require('vue-router').default;
 
@@ -84,7 +86,7 @@ const router = new VueRouter({
                 {
                     path: 'userWelcomePage',
                     component: UserWelcomePage,
-                    meta: {title: 'Ваши заказы'}
+                    meta: {title: 'Личный кабинет'}
                 },
                 {
                     path: 'makeReview',
@@ -117,7 +119,12 @@ const router = new VueRouter({
                 {
                     path: 'cleanerMainPage',
                     component: CleanerMainPage,
-                    meta: {title: 'Ваши заказы от клиентов'}
+                    meta: {title: 'Личный кабинет'}
+                },
+                {
+                    path: 'cleanerReviews',
+                    component: CleanerReviews,
+                    meta: {title: 'Отзывы на вашу работу'}
                 }
             ]
         },
@@ -151,6 +158,11 @@ const router = new VueRouter({
                     path: 'cleanersReviews',
                     component: CleanersReviews,
                     meta: {title: 'Отзывы'}
+                },
+                {
+                    path: 'adminWelcomePage',
+                    component: AdminWelcomePage,
+                    meta: {title: 'Личный кабинет'}
                 }
             ]
         },

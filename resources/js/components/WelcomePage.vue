@@ -110,6 +110,7 @@
 
     .main {
         background-color: rgb(243, 247, 243);
+        /*min-height: calc(100vh - 325px);*/
         /*width: 100vw;*/
     }
 

@@ -152,8 +152,8 @@
     }
 
     .modal__additional-services-checkbox {
-        width: 30px;
-        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
         background-color: whitesmoke;
     }
 
@@ -530,7 +530,7 @@ export default {
             total_cost: this.total,
             rooms_amount: this.cur_rooms_amount};
             axios.put('/api/makeOrder',orderInfo).then(response=>{
-                this.$router.push('/userWelcomePage')
+                this.$router.push('/client/userWelcomePage')
             }).catch((error) => {
 
             })

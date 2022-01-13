@@ -6,6 +6,8 @@
                 <img class="header__logo-image" src="Images/serviceLogo.svg" alt="Логотип компании с изображением инструментов для мытья">
             </div>
             <div class="header__links">
+                <router-link to="/cleaner/cleanerMainPage"><a href="#">ЛК</a></router-link>
+                <router-link to="/cleaner/cleanerReviews"><a href="#">Отзывы</a></router-link>
                 <a href="#" @click.prevent="logout">Выйти</a>
             </div>
         </header>

@@ -2,6 +2,7 @@
 <div class="content">
     <div class="main">
         <div class="main__content">
+            <ChangeUserDataForm></ChangeUserDataForm>
             <h2 class="main__header">Заказы клиентов</h2>
             <div v-if="isDontHaveOrders">У вас нет активных заказов</div>
             <div class="main__cards">
@@ -21,7 +22,11 @@
 </template>
 
 <script>
+import ChangeUserDataForm from './ChangeUserDataComponent.vue'
 export default {
+    components: {
+        ChangeUserDataForm
+    },
     data(){
         return{
             orders:[],
