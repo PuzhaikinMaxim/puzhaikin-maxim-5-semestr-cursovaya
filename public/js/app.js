@@ -2150,10 +2150,8 @@ __webpack_require__.r(__webpack_exports__);
     deleteOrder: function deleteOrder(order) {
       var _this = this;
 
-      axios["delete"]('/api/deleteActiveOrder', {
-        params: {
-          id: order.id
-        }
+      axios.post('/api/deleteActiveOrder', {
+        id: order.id
       }).then(function (response) {
         axios.put('/api/addActiveReview', order).then(function (response) {
           _this.deleteElem(order.id);
@@ -2662,7 +2660,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data.role_id);
         if (response.data.role_id === 1) _this.$router.push('/client/userWelcomePage');
         if (response.data.role_id === 2) _this.$router.push('/cleaner/cleanerMainPage');
-        if (response.data.role_id === 3) _this.$router.push('/admin/registerCleaner');
+        if (response.data.role_id === 3) _this.$router.push('/admin/adminWelcomePage');
       })["catch"](function (error) {
         _this.isLogFailed = true;
       });

@@ -36,7 +36,7 @@ export default {
     },
     methods:{
         deleteOrder(order) {
-            axios.delete('/api/deleteActiveOrder', {params: {id: order.id}}).then(response=>{
+            axios.post('/api/deleteActiveOrder', {id: order.id}).then(response=>{
                 axios.put('/api/addActiveReview', order).then(response=>{
                     this.deleteElem(order.id)
                 }).catch((error) => {

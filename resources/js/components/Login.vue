@@ -37,7 +37,7 @@ export default {
                 if(response.data.role_id === 2)
                     this.$router.push('/cleaner/cleanerMainPage')
                 if(response.data.role_id === 3)
-                    this.$router.push('/admin/registerCleaner')
+                    this.$router.push('/admin/adminWelcomePage')
             }).catch((error) => {
                 this.isLogFailed = true;
             })
