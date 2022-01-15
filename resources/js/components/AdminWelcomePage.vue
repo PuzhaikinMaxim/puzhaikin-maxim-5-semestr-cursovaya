@@ -52,6 +52,7 @@ export default {
         margin-right: auto;
         background-color: lightgray;
         padding: 20px 20px 20px 20px;
+        border-radius: 10px;
     }
 
     .user-data__item {

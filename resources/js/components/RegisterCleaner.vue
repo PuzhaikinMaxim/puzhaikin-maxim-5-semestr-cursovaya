@@ -107,6 +107,10 @@ export default {
         margin-left: auto;
     }
 
+    .main__cards {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
     .main__add-cleaner-input {
         border: none;
         height: 40px;
@@ -137,7 +141,7 @@ export default {
         justify-content: space-between;
         color: whitesmoke;
         padding: 15px;
-        max-width: 400px;
+        width: 400px;
         min-height: 250px;
         border-radius: 25px;
         margin-left: auto;
@@ -164,5 +168,18 @@ export default {
     .main__add-cleaner-input:focus {
         outline: none;
         border: 3px solid blue;
+    }
+
+    @media (max-width: 891px) {
+        .main__cards {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main__user-cleaner-card {
+            width: 100%;
+        }
     }
 </style>

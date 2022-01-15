@@ -87,11 +87,13 @@
         flex-direction: column;
         min-height: 195px;
         justify-content: space-between;
-        max-width: 400px;
+        width: 350px;
         background-color: lightseagreen;
         padding: 10px;
         align-items: center;
         border-radius: 25px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .modal__controls {
@@ -108,6 +110,9 @@
         color: whitesmoke;
         font-size: 16px;
         font-weight: 600;
+        overflow-wrap: break-word;
+        width: 100%;
+        text-align: center;
     }
 
     .modal__total-price {
@@ -354,14 +359,14 @@
         width: 325px;
     }
 
-    @media (max-width: 792px) {
+    @media (max-width: 891px) {
         .main__rating-input {
             margin-left: auto;
             margin-right: auto;
         }
 
         .main__cleaner-card{
-            width: 400px;
+            width: 100%;
         }
     }
 </style>

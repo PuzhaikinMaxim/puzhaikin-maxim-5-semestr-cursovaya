@@ -94,18 +94,27 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        max-width: 400px;
+        width: 400px;
         background-color: lightseagreen;
         padding: 10px;
         align-items: center;
         border-radius: 25px;
         color: whitesmoke;
         min-height: 225px;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .main__cards {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
 
     .main__service-name {
         font-size: 24px;
         font-weight: 700;
+        text-align: center;
+        overflow-wrap: break-word;
+        max-width: 100%;
     }
 
     .main__service-price-label {
@@ -174,7 +183,7 @@ export default {
         font-family: 'Montserrat';
     }
 
-    @media (max-width: 792px) {
+    @media (max-width: 891px) {
         .main__cards {
             display: flex;
             justify-content: space-between;

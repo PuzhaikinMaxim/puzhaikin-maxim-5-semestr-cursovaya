@@ -70,3 +70,24 @@ export default {
     }
 }
 </script>
+
+<style>
+    .main__order-card {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (max-width: 891px) {
+        .main__cards {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main__order-card {
+            width: 100%;
+        }
+    }
+</style>

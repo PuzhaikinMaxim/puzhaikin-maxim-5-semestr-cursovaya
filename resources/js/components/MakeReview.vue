@@ -132,8 +132,14 @@ export default {
         background-color: lightseagreen;
         padding: 15px;
         border-radius: 25px;
-        max-width: 400px;
+        width: 400px;
         color: whitesmoke;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main__cards {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
 
     .main__review-title-label {
