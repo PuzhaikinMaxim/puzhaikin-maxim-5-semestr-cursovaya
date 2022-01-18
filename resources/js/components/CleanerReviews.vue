@@ -60,4 +60,8 @@ export default {
         color: #fff;
         text-align: center;
     }
+
+    .main {
+        padding-bottom: 20px;
+    }
 </style>
