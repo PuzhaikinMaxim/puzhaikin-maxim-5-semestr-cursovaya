@@ -92,4 +92,10 @@ export default {
         margin-top: 30px;
         font-weight: 700;
     }
+
+    @media print {
+        .data-change-form {
+            display: none;
+        }
+    }
 </style>
