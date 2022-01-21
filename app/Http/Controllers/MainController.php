@@ -26,7 +26,7 @@ class MainController extends Controller
 
     public function registrate(Request $request) {
         $request->validate([
-            'name' => ['required'],
+            'name' => ['required', 'min:6'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:6'],
         ]);
@@ -433,7 +433,8 @@ class MainController extends Controller
 
             //dd($request->email);
             $request->validate([
-                'email' => ['email']
+                'email' => ['email', 'unique:users'],
+                'name' => ['min:6']
             ]);
 
             DB::update('update users set name = ?, email = ? where id = ?',[$request->username,$request->email,Auth::user()->id]);

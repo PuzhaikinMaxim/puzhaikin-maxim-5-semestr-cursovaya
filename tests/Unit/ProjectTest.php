@@ -8,11 +8,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProjectTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
     /** @test */
     public function failedRegistrationTest()
     {
@@ -173,5 +168,38 @@ class ProjectTest extends TestCase
             'service_name' => 'Еще один сервис',
         ]);
         $this->assertEquals(200, $response->status());
+    }
+
+    /** @test */
+    public function failedEmailChange()
+    {
+        $this->post('api/login',[
+            'email' => 'ivanovIgor@mail.com',
+            'password' => 'VB3q10oIztl'
+        ]);
+        $response = $this->post('api/updateUserData',[
+            'email' => 'ivanovIgormail.com',
+            'username' => 'Иванов Игорь Владимирович'
+        ]);
+        $this->assertEquals(302, $response->status());
+    }
+
+    /** @test */
+    public function successfulEmailChange()
+    {
+        $response = $this->post('api/updateUserData',[
+            'email' => 'ivanovIgor@gmail.com',
+            'username' => 'Иванов Игорь Владимирович'
+        ]);
+        $this->assertEquals(200, $response->status());
+        $this->post('api/login',[
+            'email' => 'ivanovIgor@gmail.com',
+            'password' => 'VB3q10oIztl'
+        ]);
+        $this->assertEquals(200, $response->status());
+        $response = $this->post('api/updateUserData',[
+            'email' => 'ivanovIgor@mail.com',
+            'username' => 'Иванов Игорь Владимирович'
+        ]);
     }
 }
