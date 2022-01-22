@@ -84,19 +84,27 @@ export default {
                         }
                         if(this.empty_reviews.length == 0)
                             this.isCanMakeNewReview = false;
+                        alert('Отзыв был успешно создан')
                     }).catch((error) => {
 
                     })
                 }
+                else {
+                    alert('Вы ввели неверные данные')
+                }
+            }
+            else {
+                alert('Вы не заполнили одно из полей')
             }
         },
         redactReview(review){
             if(review.review_title != null && review.review_text != null){
                 if(review.review_title.length >= 5 && review.review_text.length >= 10) {
                     axios.put('/api/redactReview',review).then(response=>{
-                }).catch((error) => {
-
-                })
+                        alert('Отзыв был успешно изменен')
+                    }).catch((error) => {
+                        alert('Вы ввели неверные данные для изменения')
+                    })
                 }
             }
         }

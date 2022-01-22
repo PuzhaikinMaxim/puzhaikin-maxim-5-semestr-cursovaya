@@ -1896,10 +1896,16 @@ __webpack_require__.r(__webpack_exports__);
             _this.additionalServices.splice(i, 1);
           }
         }
+
+        alert("Услуга была удалена");
       })["catch"](function (error) {});
     },
     updateService: function updateService(service) {
-      axios.post('/api/updateService', service).then(function (response) {})["catch"](function (error) {});
+      axios.post('/api/updateService', service).then(function (response) {
+        alert("Цена была изменена");
+      })["catch"](function (error) {
+        alert("Ошибка в изменении цены");
+      });
     },
     addService: function addService() {
       var _this2 = this;
@@ -1912,8 +1918,12 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.form.service_name = "", _this2.form.service_cost = 0;
         _this2.isAddFailed = false;
+        alert("Услуга была добавлена");
       })["catch"](function (error) {
         _this2.isAddFailed = true;
+        setTimeout(function () {
+          return _this2.isAddFailed = false;
+        }, 2000);
       });
     },
     logout: function logout() {
@@ -2066,7 +2076,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       email: '',
       username: '',
-      is_successful: false
+      show_message: false,
+      message: 'Данные были успешно изменены'
     };
   },
   methods: {
@@ -2081,7 +2092,17 @@ __webpack_require__.r(__webpack_exports__);
           email: email,
           username: username
         }).then(function (response) {
-          _this.is_successful = true;
+          _this.message = 'Данные были успешно изменены';
+          _this.show_message = true;
+          setTimeout(function () {
+            return _this.show_message = false;
+          }, 2000);
+        })["catch"](function (error) {
+          _this.message = 'Данные не были изменены';
+          _this.show_message = true;
+          setTimeout(function () {
+            return _this.show_message = false;
+          }, 2000);
         });
       }
     }
@@ -2155,6 +2176,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         axios.put('/api/addActiveReview', order).then(function (response) {
           _this.deleteElem(order.id);
+
+          alert('Заказ: ' + order.id + ' по адресу: ' + order.address + ' был выполнен');
         })["catch"](function (error) {});
       })["catch"](function (error) {});
     },
@@ -2490,12 +2513,16 @@ __webpack_require__.r(__webpack_exports__);
           _this.setMarks(response);
 
           _this.updatePieData();
+
+          _this.reviews = [];
         })["catch"](function (error) {});
       } else {
         axios.get('/api/getCleanersReviews').then(function (response) {
           _this.setMarks(response);
 
           _this.updatePieData();
+
+          _this.reviews = [];
         })["catch"](function (error) {});
       }
     },
@@ -2776,14 +2803,23 @@ __webpack_require__.r(__webpack_exports__);
             }
 
             if (_this.empty_reviews.length == 0) _this.isCanMakeNewReview = false;
+            alert('Отзыв был успешно создан');
           })["catch"](function (error) {});
+        } else {
+          alert('Вы ввели неверные данные');
         }
+      } else {
+        alert('Вы не заполнили одно из полей');
       }
     },
     redactReview: function redactReview(review) {
       if (review.review_title != null && review.review_text != null) {
         if (review.review_title.length >= 5 && review.review_text.length >= 10) {
-          axios.put('/api/redactReview', review).then(function (response) {})["catch"](function (error) {});
+          axios.put('/api/redactReview', review).then(function (response) {
+            alert('Отзыв был успешно изменен');
+          })["catch"](function (error) {
+            alert('Вы ввели неверные данные для изменения');
+          });
         }
       }
     }
@@ -3525,6 +3561,8 @@ __webpack_require__.r(__webpack_exports__);
             _this.cleaners.splice(i, 1);
           }
         }
+
+        alert('Данные об уборщике были удалены');
       })["catch"](function (error) {});
     },
     addUser: function addUser() {
@@ -3539,12 +3577,19 @@ __webpack_require__.r(__webpack_exports__);
             _this2.form.password = '';
             _this2.form.password_confirm = '';
             _this2.isCleanerRegFailed = false;
+            alert('Уборщик был добавлен в систему');
           })["catch"](function (error) {});
         })["catch"](function (error) {
           _this2.isCleanerRegFailed = true;
+          setTimeout(function () {
+            return _this2.isCleanerRegFailed = false;
+          }, 2000);
         });
       } else {
         this.isCleanerRegFailed = true;
+        setTimeout(function () {
+          return _this2.isCleanerRegFailed = false;
+        }, 2000);
       }
     },
     logout: function logout() {
@@ -3701,6 +3746,7 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         if (_this.orders.length == 0) _this.isHaveActiveOrders = true;
+        alert('Заказ был успешно отменен');
       })["catch"](function (error) {});
     }
   },
@@ -23173,7 +23219,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.data-change-form {\n    display: flex;\n    justify-content: center;\n    padding-top: 30px;\n}\n.data-change-form__content {\n    display: flex;\n    flex-direction: column;\n    background-color: cornflowerblue;\n    max-width: 600px;\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-bottom: 15px;\n    border-radius: 15px;\n    flex: 1;\n}\n.data-change-form__change-data-input {\n    border: none;\n    height: 40px;\n    font-size: 16px;\n    font-family: 'Montserrat';\n    border: 2px solid slateblue;\n    border-radius: 20px;\n    transition: .25s;\n    margin-top: 10px;\n}\n.data-change-form__change-data-input:focus {\n    outline: none;\n    border: 3px solid blue;\n}\n.data-change-form__change-data-submit {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 30px;\n    background-color: slateblue;\n    color: whitesmoke;\n}\n.data-change-form__title {\n    font-size: 24px;\n    margin-top: 30px;\n    font-weight: 700;\n}\n@media print {\n.data-change-form {\n        display: none;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.data-change-form {\n    display: flex;\n    justify-content: center;\n    padding-top: 30px;\n}\n.data-change-form__content {\n    display: flex;\n    flex-direction: column;\n    background-color: cornflowerblue;\n    max-width: 600px;\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-bottom: 15px;\n    border-radius: 15px;\n    flex: 1;\n}\n.data-change-form__change-data-input {\n    border: none;\n    height: 40px;\n    font-size: 16px;\n    font-family: 'Montserrat';\n    border: 2px solid slateblue;\n    border-radius: 20px;\n    transition: .25s;\n    margin-top: 10px;\n}\n.data-change-form__change-data-input:focus {\n    outline: none;\n    border: 3px solid blue;\n}\n.data-change-form__change-data-submit {\n    height: 40px;\n    border: none;\n    font-size: 20px;\n    font-family: 'Montserrat';\n    border-radius: 20px;\n    margin-top: 30px;\n    background-color: slateblue;\n    color: whitesmoke;\n}\n.data-change-form__title {\n    font-size: 24px;\n    margin-top: 30px;\n    font-weight: 700;\n}\n.data-change-form__message {\n    text-align: center;\n    font-size: 22px;\n    color: white;\n    margin-top: 15px;\n}\n@media print {\n.data-change-form {\n        display: none;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -78813,8 +78859,10 @@ var render = function() {
         [_vm._v("Изменить данные")]
       ),
       _vm._v(" "),
-      _vm.is_successful
-        ? _c("div", [_vm._v("Данные были успешно изменены")])
+      _vm.show_message
+        ? _c("div", { staticClass: "data-change-form__message" }, [
+            _vm._v(_vm._s(_vm.message))
+          ])
         : _vm._e()
     ])
   ])

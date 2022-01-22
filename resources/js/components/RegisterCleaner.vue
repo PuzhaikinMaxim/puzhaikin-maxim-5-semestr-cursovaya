@@ -49,6 +49,7 @@ export default {
                         this.cleaners.splice(i,1);
                     }
                 }
+                alert('Данные об уборщике были удалены')
             }).catch((error) => {
 
             })
@@ -63,15 +64,18 @@ export default {
                         this.form.password = '';
                         this.form.password_confirm = '';
                         this.isCleanerRegFailed = false;
+                        alert('Уборщик был добавлен в систему')
                     }).catch((error) => {
 
                     })
                 }).catch((error) => {
                     this.isCleanerRegFailed = true;
+                    setTimeout(()=>this.isCleanerRegFailed = false,2000)
                 })
             }
             else {
                 this.isCleanerRegFailed = true;
+                setTimeout(()=>this.isCleanerRegFailed = false,2000)
             }
         },
         logout() {

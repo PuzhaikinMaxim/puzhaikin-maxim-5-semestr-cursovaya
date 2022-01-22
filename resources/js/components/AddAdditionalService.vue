@@ -48,15 +48,16 @@ export default {
                         this.additionalServices.splice(i,1);
                     }
                 }
+                alert("Услуга была удалена")
             }).catch((error) => {
 
             })
         },
         updateService(service){
             axios.post('/api/updateService',service).then(response=>{
-
+                alert("Цена была изменена")
             }).catch((error) => {
-
+                alert("Ошибка в изменении цены")
             })
         },
         addService(){
@@ -66,8 +67,10 @@ export default {
                 this.form.service_name = "",
                 this.form.service_cost = 0
                 this.isAddFailed = false;
+                alert("Услуга была добавлена")
             }).catch((error) => {
                 this.isAddFailed = true;
+                setTimeout(()=>this.isAddFailed = false,2000)
             })
         },
         logout() {

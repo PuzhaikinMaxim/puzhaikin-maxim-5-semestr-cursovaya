@@ -189,6 +189,7 @@ export default {
                 axios.get('/api/getCleanersReviews', {params: {id}}).then(response=>{
                     this.setMarks(response)
                     this.updatePieData()
+                    this.reviews = []
                 }).catch((error) => {
 
                 })
@@ -197,6 +198,7 @@ export default {
                 axios.get('/api/getCleanersReviews').then(response=>{
                     this.setMarks(response)
                     this.updatePieData()
+                    this.reviews = []
                 }).catch((error) => {
 
                 })

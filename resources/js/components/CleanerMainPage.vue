@@ -39,6 +39,7 @@ export default {
             axios.post('/api/deleteActiveOrder', {id: order.id}).then(response=>{
                 axios.put('/api/addActiveReview', order).then(response=>{
                     this.deleteElem(order.id)
+                    alert('Заказ: '+ order.id + ' по адресу: ' + order.address + ' был выполнен')
                 }).catch((error) => {
 
                 })

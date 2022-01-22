@@ -6,7 +6,7 @@
             <div class="data-change-form__title">Электронная почта</div>
             <input type="text" v-model="email" placeholder="Электронная почта" class="data-change-form__change-data-input">
             <button v-on:click="changeUserData()" class="data-change-form__change-data-submit">Изменить данные</button>
-            <div v-if="is_successful">Данные были успешно изменены</div>
+            <div v-if="show_message" class="data-change-form__message">{{message}}</div>
         </div>
     </div>
 </template>
@@ -17,7 +17,8 @@ export default {
         return {
             email: '',
             username: '',
-            is_successful: false
+            show_message: false,
+            message: 'Данные были успешно изменены'
         }
     },
     methods: {
@@ -26,7 +27,13 @@ export default {
             var username = this.username
             if(email != '' && username != ''){
                 axios.post('/api/updateUserData', {email, username}).then(response=>{
-                    this.is_successful = true
+                    this.message = 'Данные были успешно изменены'
+                    this.show_message = true
+                    setTimeout(() => this.show_message = false,2000)
+                }).catch((error) => {
+                    this.message = 'Данные не были изменены'
+                    this.show_message = true
+                    setTimeout(() => this.show_message = false,2000)
                 })
             }
         }
@@ -91,6 +98,13 @@ export default {
         font-size: 24px;
         margin-top: 30px;
         font-weight: 700;
+    }
+
+    .data-change-form__message {
+        text-align: center;
+        font-size: 22px;
+        color: white;
+        margin-top: 15px;
     }
 
     @media print {

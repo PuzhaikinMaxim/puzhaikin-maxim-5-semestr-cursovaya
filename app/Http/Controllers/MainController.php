@@ -433,9 +433,14 @@ class MainController extends Controller
 
             //dd($request->email);
             $request->validate([
-                'email' => ['email', 'unique:users'],
+                'email' => ['email'],
                 'name' => ['min:6']
             ]);
+            if(Auth::user()->email != $request->email){
+                $request->validate([
+                    'email' => ['unique:users']
+                ]);
+            }
 
             DB::update('update users set name = ?, email = ? where id = ?',[$request->username,$request->email,Auth::user()->id]);
             if($request->has('old_password','new_password')){

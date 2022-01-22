@@ -44,6 +44,7 @@ export default {
                 }
                 if(this.orders.length == 0)
                     this.isHaveActiveOrders = true;
+                alert('Заказ был успешно отменен')
             }).catch((error) => {
 
             })
