@@ -49,11 +49,13 @@ export default {
                 }).catch((error) => {
                     this.isRegFailed = true;
                     this.isRegSuccess = false;
+                    setTimeout(()=>this.isRegFailed=false,2000)
                 })
             }
             else {
                 this.isRegFailed = true;
                 this.isRegSuccess = false;
+                setTimeout(()=>this.isRegFailed=false,2000)
             }
         }
     }

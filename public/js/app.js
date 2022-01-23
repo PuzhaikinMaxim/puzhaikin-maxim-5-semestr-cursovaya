@@ -3677,10 +3677,16 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (error) {
           _this.isRegFailed = true;
           _this.isRegSuccess = false;
+          setTimeout(function () {
+            return _this.isRegFailed = false;
+          }, 2000);
         });
       } else {
         this.isRegFailed = true;
         this.isRegSuccess = false;
+        setTimeout(function () {
+          return _this.isRegFailed = false;
+        }, 2000);
       }
     }
   }
