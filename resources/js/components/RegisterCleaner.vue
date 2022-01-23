@@ -143,6 +143,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow-wrap: break-word;
         color: whitesmoke;
         padding: 15px;
         width: 400px;

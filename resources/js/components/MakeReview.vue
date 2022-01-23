@@ -144,6 +144,7 @@ export default {
         color: whitesmoke;
         margin-left: auto;
         margin-right: auto;
+        overflow-wrap: break-word;
     }
 
     .main__cards {
@@ -235,6 +236,7 @@ export default {
     @media (max-width: 792px) {
         .main__reviews-header {
             text-align: center;
+            margin-left: 0px;
         }
     }
 </style>
